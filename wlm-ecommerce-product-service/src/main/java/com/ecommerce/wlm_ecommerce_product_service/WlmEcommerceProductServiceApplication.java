@@ -8,7 +8,7 @@ public class WlmEcommerceProductServiceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(WlmEcommerceProductServiceApplication.class, args);
-        System.out.println("START MESSAGE HAS BEEN CHANGED!");
+        System.out.println("OKAY, CAN GO ON!");
 	}
 
 }

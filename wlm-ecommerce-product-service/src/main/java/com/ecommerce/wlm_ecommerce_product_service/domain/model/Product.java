@@ -11,9 +11,9 @@ public class Product {
     private final String name;
     private final String description;
     private final BigDecimal price;
-    private final ProductQuantity quantity;
+    private final int quantity;
 
-    public Product(String SKU, String name, String description, BigDecimal price, ProductQuantity quantity) {
+    public Product(String SKU, String name, String description, BigDecimal price, int quantity) {
         if(SKU == null || SKU.isBlank()){
             throw new IllegalArgumentException("SKU cannot be null or blank");
         }
@@ -21,7 +21,10 @@ public class Product {
             throw new IllegalArgumentException("name is null or blank");
         }
         if(price == null || price.compareTo(BigDecimal.ZERO) < 0){
-            // be aware about when SKU is generated
+            throw new IllegalArgumentException("price cannot be null or blank");
+        }
+
+        if(price == null || price.compareTo(BigDecimal.ZERO) < 0 && quantity <= 0){
             throw new IllegalArgumentException("price cannot be null or blank");
         }
 
@@ -32,14 +35,41 @@ public class Product {
         this.quantity = quantity;
     }
 
+    public Product changeName(String name){
+        return new Product(
+                this.SKU,
+                name,
+                this.description,
+                this.price,
+                this.quantity);
+    }
+
+    public Product changeDescription(String description){
+        return new Product(
+                this.SKU,
+                this.name,
+                description,
+                this.price,
+                this.quantity);
+    }
+
     public Product changePrice(BigDecimal newPrice){
-        // is needed to valid the "newPrice"?
         return new Product(
                 this.SKU,
                 this.name,
                 this.description,
                 newPrice,
-                this.getQuantity());
+                this.quantity);
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "SKU='" + SKU + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", productQuantity=" + quantity +
+                '}';
+    }
 }

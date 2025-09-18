@@ -16,8 +16,8 @@ public class ProductEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String SKU;
+    @Column(nullable = false, unique = true)
+    private String sku;
 
     @Column(nullable = false)
     private String name;
@@ -27,17 +27,28 @@ public class ProductEntity {
     @Column(nullable = false, precision = 12, scale = 2)
     private BigDecimal price;
 
-    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
-    private ProductEntityQuantity entityQuantity;
+    @Column(nullable = false)
+    private int quantity;
 
     protected ProductEntity() {}
 
-    public ProductEntity(String sku, String name, String description, BigDecimal price, ProductEntityQuantity entityQuantity) {
-        this.SKU = sku;
+    public ProductEntity(String sku, String name, String description, BigDecimal price, int productQuantity) {
+        this.sku = sku;
         this.name = name;
         this.description = description;
         this.price = price;
-        this.entityQuantity = entityQuantity;
+        this.quantity = productQuantity;
     }
 
+    @Override
+    public String toString() {
+        return "ProductEntity{" +
+                "id=" + id +
+                ", sku='" + sku + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                '}';
+    }
 }

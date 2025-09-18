@@ -1,7 +1,6 @@
 package com.ecommerce.wlm_ecommerce_product_service.application.dto;
 
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.Product;
-import com.ecommerce.wlm_ecommerce_product_service.domain.model.ProductQuantity;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,8 +14,6 @@ public class ProductDTO {
     private String description;
     private BigDecimal price;
     private int quantity;
-
-    public ProductDTO() {}
 
     public ProductDTO(String sku, String name, String description, BigDecimal price, int quantity) {
         this.sku = sku;
@@ -32,18 +29,17 @@ public class ProductDTO {
             product.getName(),
             product.getDescription(),
             product.getPrice(),
-            product.getQuantity().getQuantity()
+            product.getQuantity()
         );
     }
 
     public Product toDomain() {
-
         return new Product(
             this.sku,
             this.name,
             this.description,
             this.price,
-            new ProductQuantity(this.quantity)
+            this.quantity
         );
     }
 
