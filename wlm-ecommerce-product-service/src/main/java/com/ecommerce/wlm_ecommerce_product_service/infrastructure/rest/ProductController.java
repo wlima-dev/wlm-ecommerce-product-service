@@ -72,7 +72,7 @@ public class ProductController {
         List<ProductDTO> products = productService.listAllProduct();
 
         if(products == null){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(products);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
 
         return ResponseEntity.ok(productService.listAllProduct());
