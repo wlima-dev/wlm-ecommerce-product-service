@@ -60,31 +60,14 @@ public class ProductRepositoryImpl implements ProductRepository {
 
     @Override
     public Product update(Product product) {
-
-        System.out.println("dentro da implementação: ");
-        System.out.println("o Produto que chegou foi esse: ");
-        System.out.println(product);
-
-        System.out.println("SKU que recebemos: " + product.getSKU());
-
         ProductEntity found = springDataProduct.findBySku(product.getSKU());
-        System.out.println("entity FOUNDED: ");
-        System.out.println(found);
 
         found.setName(product.getName());
         found.setDescription(product.getDescription());
         found.setPrice(product.getPrice());
         found.setQuantity(product.getQuantity());
 
-        System.out.println("found ANTES de enviar");
-        System.out.println(found);
-
         ProductEntity saved = springDataProduct.save(found);
-        System.out.printf("Found depois de mandar: ");
-        System.out.println(found);
-        System.out.printf("Saved depois de mandar: ");
-        System.out.println(saved);
-
         return ProductMapper.toDomain(saved);
     }
 

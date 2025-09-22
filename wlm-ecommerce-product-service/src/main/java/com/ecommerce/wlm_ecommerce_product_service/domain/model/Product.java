@@ -24,8 +24,8 @@ public class Product {
             throw new IllegalArgumentException("price cannot be null or blank");
         }
 
-        if(price == null || price.compareTo(BigDecimal.ZERO) < 0 && quantity <= 0){
-            throw new IllegalArgumentException("price cannot be null or blank");
+        if(quantity <= 0){
+            throw new IllegalArgumentException("Need to set a quantity");
         }
 
         this.SKU = SKU;
@@ -33,33 +33,6 @@ public class Product {
         this.price = price;
         this.description = description;
         this.quantity = quantity;
-    }
-
-    public Product changeName(String name){
-        return new Product(
-                this.SKU,
-                name,
-                this.description,
-                this.price,
-                this.quantity);
-    }
-
-    public Product changeDescription(String description){
-        return new Product(
-                this.SKU,
-                this.name,
-                description,
-                this.price,
-                this.quantity);
-    }
-
-    public Product changePrice(BigDecimal newPrice){
-        return new Product(
-                this.SKU,
-                this.name,
-                this.description,
-                newPrice,
-                this.quantity);
     }
 
     @Override
