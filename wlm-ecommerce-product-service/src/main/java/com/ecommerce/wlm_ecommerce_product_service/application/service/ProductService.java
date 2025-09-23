@@ -57,7 +57,7 @@ public class ProductService {
     @Transactional
     public ProductDTO deleteProduct(String sku){
         if(sku.isBlank()){
-            throw new IllegalArgumentException("SKU cannot be null or blank");
+            throw new IllegalArgumentException("SKU cannot be blank");
         }
         return ProductDTO.fromDomain(repository.deleteProduct(sku));
     }
