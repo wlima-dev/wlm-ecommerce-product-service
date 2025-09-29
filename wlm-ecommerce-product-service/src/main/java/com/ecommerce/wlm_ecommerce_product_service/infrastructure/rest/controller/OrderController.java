@@ -1,4 +1,4 @@
-package com.ecommerce.wlm_ecommerce_product_service.infrastructure.rest;
+package com.ecommerce.wlm_ecommerce_product_service.infrastructure.rest.controller;
 
 import com.ecommerce.wlm_ecommerce_product_service.application.service.OrderService;
 import com.ecommerce.wlm_ecommerce_product_service.application.service.UserService;
@@ -9,7 +9,6 @@ import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.re
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -28,19 +27,13 @@ public class OrderController {
         this.springDataUser = springDataUser;
     }
 
-    @PostMapping("/{userId}")
-    public ResponseEntity<OrderEntity> createOrder(
-            @RequestBody Order order,
-            @PathVariable Long userId){
-        if(userId <= 0){
+    @PostMapping()
+    public ResponseEntity<OrderEntity> createOrder(@RequestBody Order order){
+        if(order.getUserId() <= 0 || springDataUser.findById(order.getUserId()).isEmpty()){
             return  new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
-        if(userService.findById(userId) == null){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found");
-        }
-
-        OrderEntity savedOrder = orderService.createOrder(order, userId);
+        OrderEntity savedOrder = orderService.createOrder(order);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedOrder);
     }
 
@@ -70,11 +63,11 @@ public class OrderController {
         return ResponseEntity.ok().body(lista);
     }
 
-    @DeleteMapping("/delete/{userId}/{orderId}")
+    @DeleteMapping("/{userId}/{orderId}")
     public ResponseEntity<Void> deleteOrder(@PathVariable Long userId, @PathVariable Long orderId){
         User user = userService.findById(userId);
         if(user == null){
-            throw new NoSuchElementException("No element was found");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
         orderService.deleteOrderById(orderId);
         return ResponseEntity.ok().build();

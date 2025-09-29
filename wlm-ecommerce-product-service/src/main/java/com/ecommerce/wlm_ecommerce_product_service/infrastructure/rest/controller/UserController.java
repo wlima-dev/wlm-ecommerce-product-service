@@ -1,4 +1,4 @@
-package com.ecommerce.wlm_ecommerce_product_service.infrastructure.rest;
+package com.ecommerce.wlm_ecommerce_product_service.infrastructure.rest.controller;
 
 import com.ecommerce.wlm_ecommerce_product_service.application.service.UserService;
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.User;
@@ -28,12 +28,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     public ResponseEntity<User> findByIdUser(@PathVariable Long id){
-        User user = userService.findById(id);
-        if(user == null){
-            throw new IllegalArgumentException("User not found");
-        }
-
-        return ResponseEntity.ok(user);
+        return ResponseEntity.ok(userService.findById(id));
     }
 
     @GetMapping

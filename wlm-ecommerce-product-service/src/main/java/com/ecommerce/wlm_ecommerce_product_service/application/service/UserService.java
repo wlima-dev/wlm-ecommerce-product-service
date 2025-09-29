@@ -23,17 +23,7 @@ public class UserService {
     }
 
     public User findById(Long id){
-        if(id == null || id <= 0 ){
-            throw new IllegalArgumentException("The id must be valid!");
-        }
-
-        User user = userRepository.findById(id);
-
-        if(user == null){
-            throw new NoSuchElementException("Was not posible to find this User");
-        }
-
-        return user;
+        return userRepository.findById(id);
     }
 
     public List<User> findAll(){
