@@ -1,4 +1,4 @@
-package com.ecommerce.wlm_ecommerce_product_service.infrastructure.rest;
+package com.ecommerce.wlm_ecommerce_product_service.infrastructure.rest.controller;
 
 import com.ecommerce.wlm_ecommerce_product_service.application.dto.ProductDTO;
 import com.ecommerce.wlm_ecommerce_product_service.application.service.ProductService;

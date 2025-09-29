@@ -1,5 +1,6 @@
 package com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.adapter;
 
+import com.ecommerce.wlm_ecommerce_product_service.domain.exception.UserNotFoundException;
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.User;
 import com.ecommerce.wlm_ecommerce_product_service.domain.repository.UserRepository;
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.UserEntity;
@@ -31,7 +32,7 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public User findById(Long id){
         UserEntity userEntity = springDataUser.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("User not found"));
+                .orElseThrow(() -> new UserNotFoundException(id));
         return UserMapper.toDomain(userEntity);
     }
 
