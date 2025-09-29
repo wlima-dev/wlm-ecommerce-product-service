@@ -4,8 +4,8 @@ import com.ecommerce.wlm_ecommerce_product_service.application.service.OrderServ
 import com.ecommerce.wlm_ecommerce_product_service.application.service.UserService;
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.Order;
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.User;
-import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.OrderEntity;
-import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.SpringDataUser;
+import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.OrderEntity;
+import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.repository.SpringDataUser;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

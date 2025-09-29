@@ -1,4 +1,4 @@
-package com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence;
+package com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

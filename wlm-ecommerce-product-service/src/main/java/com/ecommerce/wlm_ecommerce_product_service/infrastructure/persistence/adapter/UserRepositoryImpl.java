@@ -1,7 +1,9 @@
-package com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence;
+package com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.adapter;
 
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.User;
 import com.ecommerce.wlm_ecommerce_product_service.domain.repository.UserRepository;
+import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.UserEntity;
+import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.repository.SpringDataUser;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -34,14 +36,7 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public User findByEmail(String email){
-        UserEntity userEntitiy = springDataUser.findByEmail(email)
-                .orElseThrow(() -> new NoSuchElementException("User not found"));
-        return UserMapper.toDomain(userEntitiy);
-    }
-
-    @Override
-    public List<User> findAllUsers(){
+    public List<User> findAll(){
         return springDataUser
                 .findAll()
                 .stream()
@@ -49,8 +44,8 @@ public class UserRepositoryImpl implements UserRepository {
                 .toList();
     }
 
-    public User updateUser(User user, Long id){
-        UserEntity userEntity = springDataUser.findById(id)
+    public User updateUser(User user){
+        UserEntity userEntity = springDataUser.findById(user.getId())
                 .orElseThrow(() -> new NoSuchElementException("User not found"));
 
         // USER

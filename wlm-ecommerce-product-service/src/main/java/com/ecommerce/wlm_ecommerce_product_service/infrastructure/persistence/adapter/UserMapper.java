@@ -1,7 +1,9 @@
-package com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence;
+package com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.adapter;
 
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.Address;
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.User;
+import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.AddressEntity;
+import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.UserEntity;
 
 public class UserMapper {
     public static User toDomain(UserEntity entity){

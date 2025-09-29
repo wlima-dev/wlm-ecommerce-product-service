@@ -3,10 +3,10 @@ package com.ecommerce.wlm_ecommerce_product_service.application.service;
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.Order;
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.OrderItem;
 import com.ecommerce.wlm_ecommerce_product_service.domain.repository.OrderRepository;
-import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.OrderEntity;
-import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.OrderItemsEntity;
-import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.ProductEntity;
-import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.SpringDataProduct;
+import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.OrderEntity;
+import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.OrderItemsEntity;
+import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.ProductEntity;
+import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.repository.SpringDataProduct;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 

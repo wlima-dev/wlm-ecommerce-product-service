@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/api/user")
@@ -25,7 +26,7 @@ public class UserController {
         return ResponseEntity.ok(userService.createUser(user));
     }
 
-    @GetMapping("/find/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<User> findByIdUser(@PathVariable Long id){
         User user = userService.findById(id);
         if(user == null){
@@ -35,27 +36,18 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
-    @GetMapping("/{email}")
-    public ResponseEntity<User> getUser(@PathVariable String email){
-        if(email.isBlank()){
-            throw new IllegalArgumentException("User cannot be null");
-        }
-        User user = userService.getUserByEmail(email);
-        return ResponseEntity.ok(user);
-    }
-
     @GetMapping
     public ResponseEntity<List<User>> getAllUser(){
-        List<User> list = userService.getAllUsers();
+        List<User> list = userService.findAll();
         if(list.isEmpty()){
            return  ResponseEntity.noContent().build();
         }
         return ResponseEntity.ok(list);
     }
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity<User> updateUser(@RequestBody User user, @PathVariable Long id){
-        User newUser = userService.updateUser(user, id);
+    @PutMapping()
+    public ResponseEntity<User> updateUser(@RequestBody User user){
+        User newUser = userService.updateUser(user);
 
         if(newUser == null){
             throw new IllegalArgumentException("The user could not be found.");
@@ -63,17 +55,18 @@ public class UserController {
         return ResponseEntity.ok(newUser);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id){
         if(id <= 0){
             return ResponseEntity.badRequest().build();
         }
 
-        boolean deleted = userService.deleteUser(id);
-        if(!deleted){
+        try {
+            userService.deleteUser(id);
+            return ResponseEntity.noContent().build();
+        } catch (NoSuchElementException exception){
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.noContent().build();
     }
 
 }
