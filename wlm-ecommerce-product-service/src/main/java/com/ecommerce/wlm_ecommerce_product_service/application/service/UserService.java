@@ -6,6 +6,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class UserService {
@@ -21,37 +22,45 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public User getUserByEmail(String email){
-        return userRepository.findByEmail(email);
-    }
-
     public User findById(Long id){
-        return userRepository.findById(id);
+        if(id == null || id <= 0 ){
+            throw new IllegalArgumentException("The id must be valid!");
+        }
+
+        User user = userRepository.findById(id);
+
+        if(user == null){
+            throw new NoSuchElementException("Was not posible to find this User");
+        }
+
+        return user;
     }
 
-    public List<User> getAllUsers(){
-        return userRepository.findAllUsers();
+    public List<User> findAll(){
+        List<User> list = userRepository.findAll();
+        if(list.isEmpty()){
+            throw new NoSuchElementException("Was not able to find any user!");
+        }
+        return list;
     }
 
     @Transactional
-    public User updateUser(User user, Long id){
-        User upado = userRepository.updateUser(user, id);
-
-        if(upado == null){
+    public User updateUser(User user){
+        if(user.getId() == null){
             throw new IllegalArgumentException("was not possible to find a register.");
         }
 
-        return upado;
+        User existingUser = userRepository.findById(user.getId());
+        if(existingUser == null){
+            throw new IllegalArgumentException("Cant find this user" + user.getId());
+        }
+
+        return userRepository.updateUser(user);
     }
 
     @Transactional
-    public boolean deleteUser(Long id){
-        User user = userRepository.findById(id);
-        if(user != null){
+    public void deleteUser(Long id){
             userRepository.delete(id);
-            return true;
-        }
-        return false;
     }
 
 }

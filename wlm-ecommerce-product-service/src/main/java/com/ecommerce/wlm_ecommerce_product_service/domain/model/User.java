@@ -6,22 +6,30 @@ import lombok.Setter;
 @Getter
 @Setter
 public class User {
+    private Long id;
     private String name;
     private String email;
     private Address address;
 
     public User(String name, String email, Address address) {
+        if(!email.contains("@") || !email.contains(".") ){
+            throw new IllegalArgumentException("Invalid email address");
+        }
+
         this.name = name;
         this.email = email;
         this.address = address;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", address=" + address +
-                '}';
+    public User(Long id, String name, String email, Address address) {
+        if(!email.contains("@") || !email.contains(".") ){
+            throw new IllegalArgumentException("Invalid email address");
+        }
+
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.address = address;
     }
+
 }

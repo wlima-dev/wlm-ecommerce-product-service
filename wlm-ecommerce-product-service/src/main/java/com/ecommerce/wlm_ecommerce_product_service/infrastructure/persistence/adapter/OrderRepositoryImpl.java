@@ -1,6 +1,8 @@
-package com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence;
+package com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.adapter;
 
 import com.ecommerce.wlm_ecommerce_product_service.domain.repository.OrderRepository;
+import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.OrderEntity;
+import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.repository.SpringDataOrder;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

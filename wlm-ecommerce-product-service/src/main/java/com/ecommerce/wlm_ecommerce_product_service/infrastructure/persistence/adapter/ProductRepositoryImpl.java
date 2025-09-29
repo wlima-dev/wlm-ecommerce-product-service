@@ -1,7 +1,9 @@
-package com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence;
+package com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.adapter;
 
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.Product;
 import com.ecommerce.wlm_ecommerce_product_service.domain.repository.ProductRepository;
+import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.ProductEntity;
+import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.repository.SpringDataProduct;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

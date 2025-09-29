@@ -22,7 +22,7 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @PostMapping("/create")
+    @PostMapping()
     public ResponseEntity<ProductDTO> create(@RequestBody ProductDTO dto) {
         Product product = dto.toDomain();
         Product saved = productService.create(product);

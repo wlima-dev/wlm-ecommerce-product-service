@@ -1,6 +1,7 @@
-package com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence;
+package com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.adapter;
 
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.Product;
+import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.ProductEntity;
 
 public class ProductMapper {
 
