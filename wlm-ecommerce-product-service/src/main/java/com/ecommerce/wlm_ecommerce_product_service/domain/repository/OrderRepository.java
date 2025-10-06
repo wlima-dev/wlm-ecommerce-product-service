@@ -1,12 +1,12 @@
 package com.ecommerce.wlm_ecommerce_product_service.domain.repository;
 
-import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.OrderEntity;
+import com.ecommerce.wlm_ecommerce_product_service.domain.model.Order;
 
 import java.util.List;
 
 public interface OrderRepository {
-    OrderEntity save(OrderEntity orderEntity);
-    OrderEntity findOrderById(Long id);
-    List<OrderEntity> findOrdersByUserId(Long userId);
+    Order save(Order order);
+    Order findOrderById(Long id);
+    List<Order> findAllByUserId(Long userId);
     void deleteOrderById(Long id);
 }

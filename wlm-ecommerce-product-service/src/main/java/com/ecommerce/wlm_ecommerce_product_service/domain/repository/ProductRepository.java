@@ -7,9 +7,6 @@ import java.util.List;
 public interface ProductRepository {
     Product save(Product product);
     Product findById(Long id);
-    Product findBySku(String sku);
-    List<Product> findByName(String name);
     List<Product> findAll();
-    Product update(Product product);
-    Product deleteProduct(String sku);
+    void delete(Long id);
 }

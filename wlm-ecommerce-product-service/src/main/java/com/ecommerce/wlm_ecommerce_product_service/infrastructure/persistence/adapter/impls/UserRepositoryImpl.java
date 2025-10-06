@@ -1,14 +1,13 @@
-package com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.adapter;
+package com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.adapter.impls;
 
-import com.ecommerce.wlm_ecommerce_product_service.domain.exception.UserNotFoundException;
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.User;
 import com.ecommerce.wlm_ecommerce_product_service.domain.repository.UserRepository;
+import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.adapter.mapps.UserMapper;
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.UserEntity;
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.repository.SpringDataUser;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 @Repository
 public class UserRepositoryImpl implements UserRepository {
@@ -31,8 +30,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User findById(Long id){
-        UserEntity userEntity = springDataUser.findById(id)
-                .orElseThrow(() -> new UserNotFoundException(id));
+        UserEntity userEntity = springDataUser.findById(id).orElseThrow();
         return UserMapper.toDomain(userEntity);
     }
 
@@ -45,28 +43,8 @@ public class UserRepositoryImpl implements UserRepository {
                 .toList();
     }
 
-    public User updateUser(User user){
-        UserEntity userEntity = springDataUser.findById(user.getId())
-                .orElseThrow(() -> new NoSuchElementException("User not found"));
-
-        // USER
-        userEntity.setName(user.getName());
-        userEntity.setEmail(user.getEmail());
-
-        // ADDRESS
-        userEntity.getAddressEntity().setStreet(user.getAddress().getStreet());
-        userEntity.getAddressEntity().setCity(user.getAddress().getCity());
-        userEntity.getAddressEntity().setState(user.getAddress().getState());
-        userEntity.getAddressEntity().setZip(user.getAddress().getZip());
-
-        UserEntity newUserEntity = springDataUser.save(userEntity);
-
-        return UserMapper.toDomain(newUserEntity);
-    }
-
     public void delete(Long id){
-        UserEntity userEntity = springDataUser.findById(id)
-                        .orElseThrow(() -> new NoSuchElementException("User not found"));
+        UserEntity userEntity = springDataUser.findById(id).orElseThrow();
         springDataUser.delete(userEntity);
     }
 

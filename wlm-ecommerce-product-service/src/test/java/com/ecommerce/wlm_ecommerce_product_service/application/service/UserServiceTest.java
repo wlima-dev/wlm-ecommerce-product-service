@@ -1,5 +1,6 @@
 package com.ecommerce.wlm_ecommerce_product_service.application.service;
 
+import com.ecommerce.wlm_ecommerce_product_service.domain.exception.UserNotFoundException;
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.Address;
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.User;
 import com.ecommerce.wlm_ecommerce_product_service.domain.repository.UserRepository;
@@ -12,7 +13,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -80,7 +80,7 @@ class UserServiceTest {
         when(userRepository.findById(userId)).thenReturn(user);
 
         // Act
-        User foundUser = userService.findById(userId);
+        User foundUser = userService.getUserById(userId);
 
         // Assert
         assertNotNull(foundUser);
@@ -91,13 +91,13 @@ class UserServiceTest {
     }
 
     @Test
-    @DisplayName("Should throw NoSuchElement exception when findById is called")
-    void shouldThrowExceptionNoShuchElement(){
+    @DisplayName("Should throw UserNotFoundException when findById is called with non-existent ID")
+    void shouldThrowUserNotFoundException(){
         Long nonExistentId = 999L;
         when(userRepository.findById(nonExistentId)).thenReturn(null);
 
-        assertThrows(NoSuchElementException.class,
-            () -> { userService.findById(nonExistentId); }
+        assertThrows(UserNotFoundException.class,
+            () -> userService.getUserById(nonExistentId)
         );
 
         verify(userRepository, times(1)).findById(nonExistentId);
@@ -137,7 +137,7 @@ class UserServiceTest {
                 new Address("New Road", "Bergen", "Vestland", "5000"));
 
         when(userRepository.findById(id)).thenReturn(existingUser);
-        when(userRepository.updateUser(any(User.class))).thenReturn(updatedUser);
+        when(userRepository.save(any(User.class))).thenReturn(updatedUser);
 
         User result = userService.updateUser(updatedUser);
 
@@ -147,7 +147,7 @@ class UserServiceTest {
         assertEquals("New Road", result.getAddress().getStreet());
 
         verify(userRepository, times(1)).findById(id);
-        verify(userRepository, times(1)).updateUser(updatedUser);
+        verify(userRepository, times(1)).save(updatedUser);
     }
 
     @Test

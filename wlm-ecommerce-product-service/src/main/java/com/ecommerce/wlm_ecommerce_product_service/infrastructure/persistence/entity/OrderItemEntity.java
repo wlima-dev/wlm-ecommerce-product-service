@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @Entity
 @Table(name = "order_items")
-public class OrderItemsEntity {
+public class OrderItemEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,4 +25,5 @@ public class OrderItemsEntity {
     @ManyToOne
     @JoinColumn(name = "product_id")
     private ProductEntity productEntity;
+
 }

@@ -1,4 +1,4 @@
-package com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.adapter;
+package com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.adapter.mapps;
 
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.Address;
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.User;
@@ -7,8 +7,6 @@ import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.en
 
 public class UserMapper {
     public static User toDomain(UserEntity entity){
-        if(entity == null) return null;
-
         return new User(
                 entity.getName(),
                 entity.getEmail(),
@@ -22,8 +20,6 @@ public class UserMapper {
     }
 
     public static UserEntity toEntity(User user){
-        if(user == null) return null;
-
         return new UserEntity(
                 user.getName(),
                 user.getEmail(),

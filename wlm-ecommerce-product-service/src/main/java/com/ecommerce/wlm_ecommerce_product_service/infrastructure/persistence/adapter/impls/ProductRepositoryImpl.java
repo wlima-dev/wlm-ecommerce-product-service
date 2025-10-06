@@ -1,12 +1,12 @@
-package com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.adapter;
+package com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.adapter.impls;
 
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.Product;
 import com.ecommerce.wlm_ecommerce_product_service.domain.repository.ProductRepository;
+import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.adapter.mapps.ProductMapper;
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.ProductEntity;
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.repository.SpringDataProduct;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,24 +34,6 @@ public class ProductRepositoryImpl implements ProductRepository {
     }
 
     @Override
-    public Product findBySku(String sku){
-        return ProductMapper.toDomain(springDataProduct.findBySku(sku));
-    }
-
-    @Override
-    public List<Product> findByName(String name){
-        List<ProductEntity> listEntity = springDataProduct.findByName(name);
-
-        List<Product> oldWayList = new ArrayList<>();
-
-        for(ProductEntity p : listEntity) {
-            oldWayList.add(ProductMapper.toDomain(p));
-        }
-
-        return oldWayList;
-    }
-
-    @Override
     public List<Product> findAll(){
         return springDataProduct
                 .findAll()
@@ -61,28 +43,9 @@ public class ProductRepositoryImpl implements ProductRepository {
     }
 
     @Override
-    public Product update(Product product) {
-        ProductEntity found = springDataProduct.findBySku(product.getSKU());
-
-        found.setName(product.getName());
-        found.setDescription(product.getDescription());
-        found.setPrice(product.getPrice());
-        found.setQuantity(product.getQuantity());
-
-        ProductEntity saved = springDataProduct.save(found);
-        return ProductMapper.toDomain(saved);
-    }
-
-    @Override
-    public Product deleteProduct(String sku){
-        ProductEntity entity = springDataProduct.findBySku(sku);
-
-        if(entity == null) {
-            throw new IllegalArgumentException("This something wrong with SKU provided");
-        }
-
+    public void delete(Long id){
+        ProductEntity entity = springDataProduct.findById(id).orElseThrow();
         springDataProduct.delete(entity);
-        return ProductMapper.toDomain(entity);
     }
 
 }

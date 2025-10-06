@@ -32,23 +32,12 @@ public class ProductEntity {
 
     protected ProductEntity() {}
 
-    public ProductEntity(String sku, String name, String description, BigDecimal price, int productQuantity) {
+    public ProductEntity(String sku, String name, String description, BigDecimal price, int quantity) {
         this.sku = sku;
         this.name = name;
         this.description = description;
         this.price = price;
-        this.quantity = productQuantity;
+        this.quantity = quantity;
     }
 
-    @Override
-    public String toString() {
-        return "ProductEntity{" +
-                "id=" + id +
-                ", sku='" + sku + '\'' +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", quantity=" + quantity +
-                '}';
-    }
 }
