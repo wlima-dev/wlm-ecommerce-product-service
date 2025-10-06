@@ -32,15 +32,4 @@ public class AddressEntity {
         this.zip = zip;
     }
 
-    @Override
-    public String toString() {
-        return "AddressEntity{" +
-                "id=" + id +
-                ", street='" + street + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", zip='" + zip + '\'' +
-                ", userEntity=" + userEntity +
-                '}';
-    }
 }

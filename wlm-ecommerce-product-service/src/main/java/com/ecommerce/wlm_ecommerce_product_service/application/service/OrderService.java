@@ -7,6 +7,7 @@ import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.en
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.OrderItemsEntity;
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.ProductEntity;
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.repository.SpringDataProduct;
+import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.repository.SpringDataUser;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -21,17 +22,18 @@ public class OrderService {
 
     public OrderService(
             OrderRepository orderRepository,
-            SpringDataProduct springDataProduct) {
+            SpringDataProduct springDataProduct,
+            SpringDataUser springDataUser) {
         this.orderRepository = orderRepository;
         this.springDataProduct = springDataProduct;
     }
 
     @Transactional
-    public OrderEntity createOrder(Order order, Long userId){
+    public OrderEntity createOrder(Order order){
         OrderEntity orderEntity = new OrderEntity(
                 order.getStatusOrder(),
                 order.getStatusPayment(),
-                userId
+                order.getUserId()
         );
 
         List<OrderItemsEntity> items = new ArrayList<>();
