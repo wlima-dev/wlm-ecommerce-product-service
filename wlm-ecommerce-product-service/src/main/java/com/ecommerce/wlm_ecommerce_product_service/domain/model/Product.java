@@ -7,42 +7,69 @@ import java.math.BigDecimal;
 @Getter
 public class Product {
 
-    private final String SKU;
-    private final String name;
-    private final String description;
-    private final BigDecimal price;
-    private final int quantity;
+    private Long id;
+    private String sku;
+    private String name;
+    private String description;
+    private BigDecimal price;
+    private int quantity;
 
-    public Product(String SKU, String name, String description, BigDecimal price, int quantity) {
-        if(SKU == null || SKU.isBlank()){
-            throw new IllegalArgumentException("SKU cannot be null or blank");
-        }
-        if(name == null || name.isBlank()){
-            throw new IllegalArgumentException("name is null or blank");
-        }
-        if(price == null || price.compareTo(BigDecimal.ZERO) < 0){
-            throw new IllegalArgumentException("price cannot be null or blank");
-        }
 
-        if(quantity <= 0){
-            throw new IllegalArgumentException("Need to set a quantity");
-        }
+    public Product(String sku, String name, String description, BigDecimal price, int quantity) {
+        validate(sku,name,price,quantity);
 
-        this.SKU = SKU;
+        this.sku = sku;
         this.name = name;
         this.price = price;
         this.description = description;
         this.quantity = quantity;
     }
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "SKU='" + SKU + '\'' +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", productQuantity=" + quantity +
-                '}';
+    public Product(Long id, String sku, String name, String description, BigDecimal price, int quantity) {
+        validate(sku,name,price,quantity);
+
+        this.id = id;
+        this.sku = sku;
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.quantity = quantity;
     }
+
+    private void validate(String sku, String name, BigDecimal price, int quantity) {
+        if(sku == null || sku.isBlank()){
+            throw new IllegalArgumentException("invalid sku was provided");
+        }
+        if(name == null || name.isBlank()){
+            throw new IllegalArgumentException("invalid name was provided");
+        }
+        if(price == null || price.compareTo(BigDecimal.ZERO) < 0){
+            throw new IllegalArgumentException("invalid price was provided");
+        }
+        if(quantity <= 0){
+            throw new IllegalArgumentException("Need to provide a valid quantity");
+        }
+    }
+
+    public void changeName(String name){
+        if(name.trim().isBlank()){
+            throw new IllegalArgumentException("Name cannot blank");
+        }
+        this.name = name;
+    }
+
+    public void changePrice(BigDecimal price){
+        if(price.compareTo(BigDecimal.ZERO) <= 0){
+            throw new IllegalArgumentException("invalid price.");
+        }
+        this.price = price;
+    }
+
+    public void changeQuantity(int quantity){
+        if(quantity <= 0){
+            throw new IllegalArgumentException("invalid quantity.");
+        }
+        this.quantity = quantity;
+    }
+
 }

@@ -1,20 +1,36 @@
 package com.ecommerce.wlm_ecommerce_product_service.domain.model;
 
 import lombok.Getter;
-import lombok.Setter;
+
+import java.math.BigDecimal;
 
 @Getter
-@Setter
 public class OrderItem {
+    private int quantity;
+    private Long orderId;
+    private Long productId;
+    private BigDecimal unitPrice;
 
-    private final Long productId;
-    private final int quantity;
-    private final Long orderId;
+    public OrderItem() {}
 
-    public OrderItem(Long productId, int quantity, Long orderId) {
-        this.productId = productId;
+    public OrderItem(int quantity, Long orderId, Long productId, BigDecimal unitPrice) {
         this.quantity = quantity;
         this.orderId = orderId;
+        this.productId = productId;
+        this.unitPrice = unitPrice;
     }
 
+    public BigDecimal getSubtotal() {
+        return unitPrice.multiply(BigDecimal.valueOf(quantity));
+    }
+
+    @Override
+    public String toString() {
+        return "OrderItem{" +
+                "quantity=" + quantity +
+                ", orderId=" + orderId +
+                ", productId=" + productId +
+                ", unitPrice=" + unitPrice +
+                '}';
+    }
 }

@@ -1,10 +1,10 @@
 package com.ecommerce.wlm_ecommerce_product_service.infrastructure.rest.controller;
 
+import com.ecommerce.wlm_ecommerce_product_service.application.dto.UpdatePaymentStatusRequest;
 import com.ecommerce.wlm_ecommerce_product_service.application.service.OrderService;
 import com.ecommerce.wlm_ecommerce_product_service.application.service.UserService;
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.Order;
-import com.ecommerce.wlm_ecommerce_product_service.domain.model.User;
-import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.OrderEntity;
+import com.ecommerce.wlm_ecommerce_product_service.domain.model.StatusPayment;
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.repository.SpringDataUser;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,48 +28,46 @@ public class OrderController {
     }
 
     @PostMapping()
-    public ResponseEntity<OrderEntity> createOrder(@RequestBody Order order){
-        if(order.getUserId() <= 0 || springDataUser.findById(order.getUserId()).isEmpty()){
-            return  new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-
-        OrderEntity savedOrder = orderService.createOrder(order);
+    public ResponseEntity<Order> createOrder(@RequestBody Order order){
+        Order savedOrder = orderService.createOrder(order);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedOrder);
     }
 
-    @GetMapping("/{userId}/{orderId}")
-    public ResponseEntity<OrderEntity> getOrder(@PathVariable Long userId, @PathVariable Long orderId){
-        User user = userService.findById(userId);
-        if(user == null){
-           throw new NoSuchElementException("No element was found");
-        }
+    @GetMapping("/{orderId}")
+    public ResponseEntity<Order> getOrder(@PathVariable Long orderId){
+        Order order = orderService.getOrderById(orderId);
 
-        OrderEntity orderEntity = orderService.getOrderById(orderId);
-        if(orderEntity == null){
+        if(order == null){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
-        return ResponseEntity.ok().body(orderEntity);
+        return ResponseEntity.ok().body(order);
     }
 
     @GetMapping("/all/{userId}")
-    public ResponseEntity<List<OrderEntity>> getAllUser(@PathVariable Long  userId){
-        springDataUser.findById(userId)
-            .orElseThrow(() -> new NoSuchElementException("User not found"));
-
-        List<OrderEntity> lista = orderService.getAllOrders(userId);
+    public ResponseEntity<List<Order>> getAllUser(@PathVariable Long  userId){
+        List<Order> lista = orderService.getAllOrders(userId);
         if(lista == null){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
         return ResponseEntity.ok().body(lista);
     }
 
+    @PutMapping("/{orderId}")
+    public ResponseEntity<Order> updateOrder(
+            @PathVariable Long orderId,
+            @RequestBody UpdatePaymentStatusRequest request) {
+        Order order = orderService.changingPaymentStatus(orderId, request.statusPayment());
+        return ResponseEntity.ok(order);
+    }
+
     @DeleteMapping("/{userId}/{orderId}")
     public ResponseEntity<Void> deleteOrder(@PathVariable Long userId, @PathVariable Long orderId){
-        User user = userService.findById(userId);
-        if(user == null){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        try {
+            orderService.deleteOrder(userId, orderId);
+            return ResponseEntity.notFound().build();
+        } catch (NoSuchElementException exception){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
-        orderService.deleteOrderById(orderId);
-        return ResponseEntity.ok().build();
     }
+
 }

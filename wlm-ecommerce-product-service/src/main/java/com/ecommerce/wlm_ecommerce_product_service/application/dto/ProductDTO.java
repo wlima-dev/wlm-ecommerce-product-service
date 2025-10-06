@@ -25,7 +25,7 @@ public class ProductDTO {
 
     public static ProductDTO fromDomain(Product product){
         return new ProductDTO(
-            product.getSKU(),
+            product.getSku(),
             product.getName(),
             product.getDescription(),
             product.getPrice(),
@@ -33,13 +33,13 @@ public class ProductDTO {
         );
     }
 
-    public Product toDomain() {
+    public static Product toDomain(ProductDTO dto) {
         return new Product(
-            this.sku,
-            this.name,
-            this.description,
-            this.price,
-            this.quantity
+                dto.sku,
+                dto.name,
+                dto.description,
+                dto.price,
+                dto.quantity
         );
     }
 

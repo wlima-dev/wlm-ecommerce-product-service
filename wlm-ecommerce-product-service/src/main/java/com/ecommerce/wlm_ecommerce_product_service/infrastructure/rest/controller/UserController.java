@@ -1,6 +1,8 @@
 package com.ecommerce.wlm_ecommerce_product_service.infrastructure.rest.controller;
 
+import com.ecommerce.wlm_ecommerce_product_service.application.dto.UserDTO;
 import com.ecommerce.wlm_ecommerce_product_service.application.service.UserService;
+import com.ecommerce.wlm_ecommerce_product_service.domain.exception.UserNotFoundException;
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,16 +21,14 @@ public class UserController {
     }
 
     @PostMapping()
-    public ResponseEntity<User> createUser(@RequestBody User user) {
-        if(user == null){
-            throw new IllegalArgumentException("User cannot be null");
-        }
-        return ResponseEntity.ok(userService.createUser(user));
+    public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO dto) {
+        User user = UserDTO.toDomain(dto);
+        return ResponseEntity.ok(UserDTO.toDTO(userService.createUser(user)));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<User> findByIdUser(@PathVariable Long id){
-        return ResponseEntity.ok(userService.findById(id));
+        return ResponseEntity.ok(userService.getUserById(id));
     }
 
     @GetMapping
@@ -41,11 +41,11 @@ public class UserController {
     }
 
     @PutMapping()
-    public ResponseEntity<User> updateUser(@RequestBody User user){
-        User newUser = userService.updateUser(user);
+    public ResponseEntity<User> updateUser(@RequestBody UserDTO dto){
+        User newUser = userService.updateUser(UserDTO.toDomain(dto));
 
         if(newUser == null){
-            throw new IllegalArgumentException("The user could not be found.");
+            throw new UserNotFoundException(null);
         }
         return ResponseEntity.ok(newUser);
     }

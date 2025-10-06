@@ -1,4 +1,4 @@
-package com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.adapter;
+package com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.adapter.mapps;
 
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.Product;
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.ProductEntity;
@@ -6,8 +6,6 @@ import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.en
 public class ProductMapper {
 
     public static Product toDomain(ProductEntity entity){
-        if(entity == null) return null;
-
         return new Product(
                 entity.getSku(),
                 entity.getName(),
@@ -18,10 +16,8 @@ public class ProductMapper {
     }
 
     public static ProductEntity toEntity(Product product){
-        if(product == null) return null;
-
         return new ProductEntity(
-            product.getSKU(),
+            product.getSku(),
             product.getName(),
             product.getDescription(),
             product.getPrice(),

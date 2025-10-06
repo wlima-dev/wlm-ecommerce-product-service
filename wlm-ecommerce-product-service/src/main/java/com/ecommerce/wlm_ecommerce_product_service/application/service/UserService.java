@@ -1,12 +1,12 @@
 package com.ecommerce.wlm_ecommerce_product_service.application.service;
 
+import com.ecommerce.wlm_ecommerce_product_service.domain.exception.UserNotFoundException;
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.User;
 import com.ecommerce.wlm_ecommerce_product_service.domain.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 @Service
 public class UserService {
@@ -19,38 +19,61 @@ public class UserService {
 
     @Transactional
     public User createUser(User user){
+        if(user == null){
+            throw new UserNotFoundException(null);
+        }
+
         return userRepository.save(user);
     }
 
-    public User findById(Long id){
-        return userRepository.findById(id);
+    public User getUserById(Long id){
+        if(id <= 0){
+            throw new IllegalArgumentException("invalid id value");
+        }
+
+        User user = userRepository.findById(id);
+        if(user == null){
+            throw new UserNotFoundException(id);
+        }
+
+        return user;
     }
 
     public List<User> findAll(){
         List<User> list = userRepository.findAll();
         if(list.isEmpty()){
-            throw new NoSuchElementException("Was not able to find any user!");
+            throw new UserNotFoundException();
         }
         return list;
     }
 
     @Transactional
-    public User updateUser(User user){
-        if(user.getId() == null){
-            throw new IllegalArgumentException("was not possible to find a register.");
+    public User updateUser(User updateRequest){
+        if(updateRequest == null){
+            throw new UserNotFoundException(null);
         }
 
-        User existingUser = userRepository.findById(user.getId());
-        if(existingUser == null){
-            throw new IllegalArgumentException("Cant find this user" + user.getId());
-        }
+        User existingUser = userRepository.findById(updateRequest.getId());
 
-        return userRepository.updateUser(user);
+        // USER
+        existingUser.changeName(updateRequest.getName());
+        existingUser.changeEmail(updateRequest.getEmail());
+
+        // ADDRESS
+        existingUser.getAddress().changeStreet(updateRequest.getAddress().getStreet());
+        existingUser.getAddress().changeCity(updateRequest.getAddress().getCity());
+        existingUser.getAddress().changeState(updateRequest.getAddress().getState());
+        existingUser.getAddress().changeZip(updateRequest.getAddress().getZip());
+
+        return userRepository.save(updateRequest);
     }
 
     @Transactional
     public void deleteUser(Long id){
-            userRepository.delete(id);
+        if(id <= 0){
+            throw new UserNotFoundException(id);
+        }
+        userRepository.delete(id);
     }
 
 }
