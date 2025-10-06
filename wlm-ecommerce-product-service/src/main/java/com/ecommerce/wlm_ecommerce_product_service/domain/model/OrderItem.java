@@ -23,14 +23,4 @@ public class OrderItem {
     public BigDecimal getSubtotal() {
         return unitPrice.multiply(BigDecimal.valueOf(quantity));
     }
-
-    @Override
-    public String toString() {
-        return "OrderItem{" +
-                "quantity=" + quantity +
-                ", orderId=" + orderId +
-                ", productId=" + productId +
-                ", unitPrice=" + unitPrice +
-                '}';
-    }
 }

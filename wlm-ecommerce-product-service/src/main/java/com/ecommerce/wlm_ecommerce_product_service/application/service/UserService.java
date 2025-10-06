@@ -65,7 +65,7 @@ public class UserService {
         existingUser.getAddress().changeState(updateRequest.getAddress().getState());
         existingUser.getAddress().changeZip(updateRequest.getAddress().getZip());
 
-        return userRepository.save(updateRequest);
+        return userRepository.save(existingUser);
     }
 
     @Transactional
