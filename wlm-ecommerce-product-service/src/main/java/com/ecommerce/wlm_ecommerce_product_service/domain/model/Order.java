@@ -55,16 +55,4 @@ public class Order {
                 .map(OrderItem::getSubtotal)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
-
-    @Override
-    public String toString() {
-        return "Order{" +
-                "id=" + id +
-                ", statusOrder=" + statusOrder +
-                ", statusPayment=" + statusPayment +
-                ", userId=" + userId +
-                ", items=" + items +
-                ", amount=" + amount +
-                '}';
-    }
 }

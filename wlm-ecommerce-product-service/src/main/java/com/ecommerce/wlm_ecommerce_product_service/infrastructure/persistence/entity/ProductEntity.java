@@ -30,7 +30,7 @@ public class ProductEntity {
     @Column(nullable = false)
     private int quantity;
 
-    protected ProductEntity() {}
+    public ProductEntity() {}
 
     public ProductEntity(String sku, String name, String description, BigDecimal price, int quantity) {
         this.sku = sku;

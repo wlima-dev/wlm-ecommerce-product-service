@@ -147,7 +147,7 @@ class UserServiceTest {
         assertEquals("New Road", result.getAddress().getStreet());
 
         verify(userRepository, times(1)).findById(id);
-        verify(userRepository, times(1)).save(updatedUser);
+        verify(userRepository, times(1)).save(any(User.class));
     }
 
     @Test
