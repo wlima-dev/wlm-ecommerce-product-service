@@ -1,1 +1,0 @@
-# Base para revisão completa

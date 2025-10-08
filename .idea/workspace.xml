@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9573f3c9-9d0f-40da-9b28-600fc5af43fb" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Record" />
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="32ZPmD3lotSdIxw6yLTdMVIKwaz" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Testtest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductServiceTest.create.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductServiceTest.listAllProduct.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.isEmailFormatValid.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.shouldUpdateTheUser.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserTest.shouldCreateValidUser.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WlmEcommerceProductServiceApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.com.ecommerce.wlm_ecommerce_product_service.application.service in wlm-ecommerce-product-service.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.WlmEcommerceProductServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;full-review&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/wlima/IdeaProjects/wlm-ecommerce-product-service&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.adapter" />
+      <recent name="com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity" />
+      <recent name="com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.repository" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.ecommerce.wlm_ecommerce_product_service.application.service" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.com.ecommerce.wlm_ecommerce_product_service.application.service in wlm-ecommerce-product-service">
+    <configuration name="OrderServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wlm-ecommerce-product-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ecommerce.wlm_ecommerce_product_service.application.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ecommerce.wlm_ecommerce_product_service.application.service" />
+      <option name="MAIN_CLASS_NAME" value="com.ecommerce.wlm_ecommerce_product_service.application.service.OrderServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wlm-ecommerce-product-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ecommerce.wlm_ecommerce_product_service.application.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ecommerce.wlm_ecommerce_product_service.application.service" />
+      <option name="MAIN_CLASS_NAME" value="com.ecommerce.wlm_ecommerce_product_service.application.service.UserServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.shouldUpdateTheUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wlm-ecommerce-product-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ecommerce.wlm_ecommerce_product_service.application.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ecommerce.wlm_ecommerce_product_service.application.service" />
+      <option name="MAIN_CLASS_NAME" value="com.ecommerce.wlm_ecommerce_product_service.application.service.UserServiceTest" />
+      <option name="METHOD_NAME" value="shouldUpdateTheUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WlmEcommerceProductServiceApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wlm-ecommerce-product-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ecommerce.wlm_ecommerce_product_service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ecommerce.wlm_ecommerce_product_service" />
+      <option name="MAIN_CLASS_NAME" value="com.ecommerce.wlm_ecommerce_product_service.WlmEcommerceProductServiceApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.ecommerce.wlm_ecommerce_product_service.application.service in wlm-ecommerce-product-service" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wlm-ecommerce-product-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ecommerce.wlm_ecommerce_product_service.application.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ecommerce.wlm_ecommerce_product_service.application.service" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WlmEcommerceProductServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="wlm-ecommerce-product-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ecommerce.wlm_ecommerce_product_service.WlmEcommerceProductServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.com.ecommerce.wlm_ecommerce_product_service.application.service in wlm-ecommerce-product-service" />
+        <item itemvalue="JUnit.UserServiceTest" />
+        <item itemvalue="JUnit.UserServiceTest.shouldUpdateTheUser" />
+        <item itemvalue="JUnit.OrderServiceTest" />
+        <item itemvalue="JUnit.WlmEcommerceProductServiceApplicationTests" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.25557.131" />
+        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-IU-252.25557.131" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9573f3c9-9d0f-40da-9b28-600fc5af43fb" name="Changes" comment="" />
+      <created>1757625277674</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1757625277674</updated>
+      <workItem from="1757625279122" duration="17113000" />
+      <workItem from="1757771253681" duration="31173000" />
+      <workItem from="1757933989948" duration="29639000" />
+      <workItem from="1758023364124" duration="25975000" />
+      <workItem from="1758055703535" duration="3684000" />
+      <workItem from="1758106510380" duration="35602000" />
+      <workItem from="1758192890069" duration="23636000" />
+      <workItem from="1758279934554" duration="30833000" />
+      <workItem from="1758367808186" duration="30000000" />
+      <workItem from="1758457056894" duration="34463000" />
+      <workItem from="1758539194932" duration="13693000" />
+      <workItem from="1758627788790" duration="5825000" />
+      <workItem from="1758721140467" duration="20060000" />
+      <workItem from="1758806843009" duration="1145000" />
+      <workItem from="1758815094450" duration="6627000" />
+      <workItem from="1758884294003" duration="6568000" />
+      <workItem from="1759061860178" duration="38729000" />
+      <workItem from="1759144145076" duration="14756000" />
+      <workItem from="1759230773936" duration="17510000" />
+      <workItem from="1759318979916" duration="25092000" />
+      <workItem from="1759409641706" duration="12063000" />
+      <workItem from="1759490968581" duration="27671000" />
+      <workItem from="1759604458680" duration="21898000" />
+      <workItem from="1759665653900" duration="33970000" />
+      <workItem from="1759747394740" duration="27723000" />
+      <workItem from="1759831275972" duration="4919000" />
+      <workItem from="1759839485543" duration="1452000" />
+      <workItem from="1759845411830" duration="3670000" />
+      <workItem from="1759920514260" duration="2838000" />
+      <workItem from="1759931577364" duration="5125000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
