@@ -4,7 +4,96 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9573f3c9-9d0f-40da-9b28-600fc5af43fb" name="Changes" comment="" />
+    <list default="true" id="9573f3c9-9d0f-40da-9b28-600fc5af43fb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/application/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/application/service/OrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/application/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/application/service/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/application/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/application/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/domain/model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/domain/model/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/domain/model/OrderItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/domain/model/OrderItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/domain/repository/OrderRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/domain/repository/OrderRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/adapter/impls/OrderRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/adapter/impls/OrderRepositoryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/adapter/mapps/OrderItemMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/adapter/mapps/OrderItemMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/adapter/mapps/OrderMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/adapter/mapps/OrderMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/entity/OrderEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/entity/OrderEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/entity/OrderItemEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/entity/OrderItemEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/infrastructure/rest/controller/OrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/infrastructure/rest/controller/OrderController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/infrastructure/rest/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/infrastructure/rest/controller/ProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/infrastructure/rest/exception/GlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ecommerce/wlm_ecommerce_product_service/infrastructure/rest/exception/GlobalExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ecommerce/wlm_ecommerce_product_service/application/service/OrderServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ecommerce/wlm_ecommerce_product_service/application/service/OrderServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ecommerce/wlm_ecommerce_product_service/application/service/UserServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ecommerce/wlm_ecommerce_product_service/application/service/UserServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/WlmEcommerceProductServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/application/dto/AddressDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/application/dto/OrderDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/application/dto/ProductDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/application/dto/UpdatePaymentStatusRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/application/dto/UserDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/application/service/OrderService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/application/service/ProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/application/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/domain/event/OrderCreatedEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/domain/exception/ProductNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/domain/exception/UserNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/domain/model/Address.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/domain/model/Order.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/domain/model/OrderItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/domain/model/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/domain/model/StatusOrder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/domain/model/StatusPayment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/domain/model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/domain/repository/OrderRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/domain/repository/ProductRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/domain/repository/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/domain/service/TaxesCalculator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/config/KafkaConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/messaging/OrderCreatedProducer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/messaging/OrderStatusConsumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/adapter/impls/OrderRepositoryImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/adapter/impls/ProductRepositoryImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/adapter/impls/UserRepositoryImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/adapter/mapps/OrderItemMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/adapter/mapps/OrderMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/adapter/mapps/ProductMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/adapter/mapps/UserMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/entity/AddressEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/entity/OrderEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/entity/OrderItemEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/entity/ProductEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/entity/UserEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/repository/SpringDataOrder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/repository/SpringDataProduct.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/repository/SpringDataUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/rest/controller/OrderController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/rest/controller/ProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/rest/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/rest/dto/ProductErrorResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/rest/dto/UserErrorResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/rest/exception/GlobalExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/test/java/com/ecommerce/wlm_ecommerce_product_service/WlmEcommerceProductServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/test/java/com/ecommerce/wlm_ecommerce_product_service/application/dto/OrderDTOTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/test/java/com/ecommerce/wlm_ecommerce_product_service/application/dto/UserDTOTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/test/java/com/ecommerce/wlm_ecommerce_product_service/application/service/OrderServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/test/java/com/ecommerce/wlm_ecommerce_product_service/application/service/ProductServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/test/java/com/ecommerce/wlm_ecommerce_product_service/application/service/UserServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/test/java/com/ecommerce/wlm_ecommerce_product_service/domain/model/UserTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/test/java/com/ecommerce/wlm_ecommerce_product_service/domain/repository/UserRepositoryTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/test/java/com/ecommerce/wlm_ecommerce_product_service/domain/service/TaxesCalculatorTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/test/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/config/BeanConfigTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/test/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/messaging/MessageProducerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/test/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/adapter/OrderRepositoryImplTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/test/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/entity/ProductEntityTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/test/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/repository/SpringDataProductRepositoryTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wlm-ecommerce-product-service/src/test/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/rest/ProductControllerTest.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,16 +102,24 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
-        <option value="Record" />
         <option value="JUnit5 Test Class" />
+        <option value="Interface" />
         <option value="Class" />
+        <option value="Exception" />
+        <option value="Record" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -37,8 +134,17 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.HelpMePlease.executor&quot;: &quot;Run&quot;,
     &quot;Application.Testtest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.WlmEcommerceProductServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.OrderServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderServiceTest.shouldChangePaymentStatusToSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderServiceTest.shouldCreateOrderSuccessfully.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderServiceTest.shouldReturnOrderWhenExists.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderServiceTest.shouldThrowWhenDeletingWithInvalidOrderId.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderServiceTest.shouldThrowWhenDeletingWithUserNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderServiceTest.shouldThrowWhenOrderIdNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderServiceTest.shouldThrowWhenOrderNotFound.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ProductServiceTest.create.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ProductServiceTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ProductServiceTest.listAllProduct.executor&quot;: &quot;Run&quot;,
@@ -49,6 +155,7 @@
     &quot;JUnit.UserTest.shouldCreateValidUser.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.WlmEcommerceProductServiceApplicationTests.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.com.ecommerce.wlm_ecommerce_product_service.application.service in wlm-ecommerce-product-service.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.service in wlm-ecommerce-product-service.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
@@ -59,7 +166,7 @@
     &quot;Spring Boot.WlmEcommerceProductServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;full-review&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;review-feature&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/wlima/IdeaProjects/wlm-ecommerce-product-service&quot;,
@@ -68,7 +175,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;build.tools&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -86,8 +193,8 @@
       <recent name="com.ecommerce.wlm_ecommerce_product_service.application.service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.com.ecommerce.wlm_ecommerce_product_service.application.service in wlm-ecommerce-product-service">
-    <configuration name="OrderServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.service in wlm-ecommerce-product-service">
+    <configuration name="OrderServiceTest.shouldChangePaymentStatusToSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="wlm-ecommerce-product-service" />
       <extension name="coverage">
         <pattern>
@@ -97,58 +204,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.ecommerce.wlm_ecommerce_product_service.application.service" />
       <option name="MAIN_CLASS_NAME" value="com.ecommerce.wlm_ecommerce_product_service.application.service.OrderServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="wlm-ecommerce-product-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ecommerce.wlm_ecommerce_product_service.application.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ecommerce.wlm_ecommerce_product_service.application.service" />
-      <option name="MAIN_CLASS_NAME" value="com.ecommerce.wlm_ecommerce_product_service.application.service.UserServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTest.shouldUpdateTheUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="wlm-ecommerce-product-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ecommerce.wlm_ecommerce_product_service.application.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ecommerce.wlm_ecommerce_product_service.application.service" />
-      <option name="MAIN_CLASS_NAME" value="com.ecommerce.wlm_ecommerce_product_service.application.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="shouldUpdateTheUser" />
+      <option name="METHOD_NAME" value="shouldChangePaymentStatusToSuccess" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WlmEcommerceProductServiceApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="wlm-ecommerce-product-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ecommerce.wlm_ecommerce_product_service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ecommerce.wlm_ecommerce_product_service" />
-      <option name="MAIN_CLASS_NAME" value="com.ecommerce.wlm_ecommerce_product_service.WlmEcommerceProductServiceApplicationTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="com.ecommerce.wlm_ecommerce_product_service.application.service in wlm-ecommerce-product-service" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OrderServiceTest.shouldReturnOrderWhenExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="wlm-ecommerce-product-service" />
       <extension name="coverage">
         <pattern>
@@ -157,10 +219,61 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ecommerce.wlm_ecommerce_product_service.application.service" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="MAIN_CLASS_NAME" value="com.ecommerce.wlm_ecommerce_product_service.application.service.OrderServiceTest" />
+      <option name="METHOD_NAME" value="shouldReturnOrderWhenExists" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="OrderServiceTest.shouldThrowWhenOrderIdNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wlm-ecommerce-product-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ecommerce.wlm_ecommerce_product_service.application.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ecommerce.wlm_ecommerce_product_service.application.service" />
+      <option name="MAIN_CLASS_NAME" value="com.ecommerce.wlm_ecommerce_product_service.application.service.OrderServiceTest" />
+      <option name="METHOD_NAME" value="shouldThrowWhenOrderIdNotFound" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderServiceTest.shouldThrowWhenOrderNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wlm-ecommerce-product-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ecommerce.wlm_ecommerce_product_service.application.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ecommerce.wlm_ecommerce_product_service.application.service" />
+      <option name="MAIN_CLASS_NAME" value="com.ecommerce.wlm_ecommerce_product_service.application.service.OrderServiceTest" />
+      <option name="METHOD_NAME" value="shouldThrowWhenOrderNotFound" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="service in wlm-ecommerce-product-service" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wlm-ecommerce-product-service" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java/com/ecommerce/wlm_ecommerce_product_service/application/service" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2" />
     </configuration>
     <configuration name="WlmEcommerceProductServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
@@ -172,11 +285,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.com.ecommerce.wlm_ecommerce_product_service.application.service in wlm-ecommerce-product-service" />
-        <item itemvalue="JUnit.UserServiceTest" />
-        <item itemvalue="JUnit.UserServiceTest.shouldUpdateTheUser" />
-        <item itemvalue="JUnit.OrderServiceTest" />
-        <item itemvalue="JUnit.WlmEcommerceProductServiceApplicationTests" />
+        <item itemvalue="JUnit.service in wlm-ecommerce-product-service" />
+        <item itemvalue="JUnit.OrderServiceTest.shouldReturnOrderWhenExists" />
+        <item itemvalue="JUnit.OrderServiceTest.shouldThrowWhenOrderNotFound" />
+        <item itemvalue="JUnit.OrderServiceTest.shouldThrowWhenOrderIdNotFound" />
+        <item itemvalue="JUnit.OrderServiceTest.shouldChangePaymentStatusToSuccess" />
       </list>
     </recent_temporary>
   </component>
@@ -184,7 +297,6 @@
     <attachedChunks>
       <set>
         <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.25557.131" />
-        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-IU-252.25557.131" />
       </set>
     </attachedChunks>
   </component>
@@ -225,6 +337,11 @@
       <workItem from="1759845411830" duration="3670000" />
       <workItem from="1759920514260" duration="2838000" />
       <workItem from="1759931577364" duration="5125000" />
+      <workItem from="1759946793903" duration="2557000" />
+      <workItem from="1759952747754" duration="772000" />
+      <workItem from="1760007621029" duration="10248000" />
+      <workItem from="1760092786533" duration="12590000" />
+      <workItem from="1760196684313" duration="17000" />
     </task>
     <servers />
   </component>
