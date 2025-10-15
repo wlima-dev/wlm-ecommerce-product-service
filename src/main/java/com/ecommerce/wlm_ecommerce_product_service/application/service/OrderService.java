@@ -2,44 +2,30 @@ package com.ecommerce.wlm_ecommerce_product_service.application.service;
 
 import com.ecommerce.wlm_ecommerce_product_service.application.dto.OrderResponse;
 import com.ecommerce.wlm_ecommerce_product_service.domain.exception.OrderCouldNotDeleteException;
-import com.ecommerce.wlm_ecommerce_product_service.domain.exception.ProductWasNotUpdated;
-import com.ecommerce.wlm_ecommerce_product_service.domain.exception.UserNotFoundException;
+import com.ecommerce.wlm_ecommerce_product_service.domain.exception.OrderNotFoundException;
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.Order;
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.OrderItem;
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.StatusOrder;
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.StatusPayment;
 import com.ecommerce.wlm_ecommerce_product_service.domain.repository.OrderRepository;
-import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.adapter.mapps.OrderMapper;
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.OrderEntity;
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.OrderItemEntity;
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.repository.SpringDataOrderItem;
-import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.repository.SpringDataProduct;
-import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.repository.SpringDataUser;
 import jakarta.transaction.Transactional;
 import jakarta.validation.constraints.Positive;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @Service
 public class OrderService {
     private final OrderRepository orderRepository;
-    private final SpringDataProduct springDataProduct;
-    private final SpringDataUser springDataUser;
     private final SpringDataOrderItem springDataOrderItem;
 
-    public OrderService(
-            OrderRepository orderRepository,
-            SpringDataProduct springDataProduct,
-            SpringDataUser springDataUser,
-            SpringDataOrderItem springDataOrderItem) {
+    public OrderService(OrderRepository orderRepository, SpringDataOrderItem springDataOrderItem) {
         this.orderRepository = orderRepository;
-        this.springDataProduct = springDataProduct;
-        this.springDataUser = springDataUser;
         this.springDataOrderItem = springDataOrderItem;
     }
 
@@ -70,27 +56,27 @@ public class OrderService {
         }
     }
 
-    public OrderResponse getOrderById(@Positive Long orderId){
-        OrderEntity order = orderRepository.findOrderById(orderId)
-                .orElseThrow(() -> new NoSuchElementException("Order not found with id: " + orderId));
+    public OrderResponse getOrderById(@Positive Long orderId) {
+        try {
+            OrderEntity order = orderRepository.findOrderById(orderId)
+                    .orElseThrow(() -> new OrderNotFoundException("Order not found with id: " + orderId));
 
-        List<OrderItemEntity> items = springDataOrderItem.findAllByOrderItemId(orderId);
+            List<OrderItemEntity> items = springDataOrderItem.findAllByOrderItemId(orderId);
 
-        return new OrderResponse(
-                order.getId(),
-                order.getStatusOrder().name(),
-                order.getStatusPayment().name(),
-                order.getUserId(),
-                order.getAmount(),
-                items
-        );
+            return new OrderResponse(
+                    order.getId(),
+                    order.getStatusOrder().name(),
+                    order.getStatusPayment().name(),
+                    order.getUserId(),
+                    order.getAmount(),
+                    items
+            );
+        } catch (OrderNotFoundException e) {
+            throw new RuntimeException("Failed to fetch order: " + e.getMessage(), e);
+        }
     }
 
-    public List<OrderEntity> getAllOrders(Long userId){
-        if(userId <= 0){
-            throw new IllegalArgumentException("The id must be valid!");
-        }
-
+    public List<OrderEntity> getAllOrders(@Positive Long userId){
         return orderRepository.findAllOrders(userId);
     }
 
@@ -103,16 +89,15 @@ public class OrderService {
     }
 
     @Transactional
-    public void deleteOrder(Long orderId){
-        if(orderId <= 0){
-            throw new IllegalArgumentException("Order id must to be greater than 0");
-        }
-
+    public void deleteOrder(@Positive Long orderId){
         try {
             springDataOrderItem.deleteByOrderItemId(orderId);
             orderRepository.deleteById(orderId);
-        } catch (OrderCouldNotDeleteException e){
-            throw new OrderCouldNotDeleteException("Order could not be deleted");
+        } catch (Exception e) {
+            OrderCouldNotDeleteException domainException =
+                new OrderCouldNotDeleteException("Could not delete order with ID: " + orderId);
+
+            throw new RuntimeException(domainException);
         }
     }
 

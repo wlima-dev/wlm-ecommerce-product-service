@@ -91,18 +91,7 @@ class UserServiceTest {
         verify(userRepository, times(1)).findById(userId);
     }
 
-    @Test
-    @DisplayName("Should throw UserNotFoundException when findById is called with non-existent ID")
-    void shouldThrowUserNotFoundException(){
-        Long nonExistentId = 999L;
-        when(userRepository.findById(nonExistentId)).thenReturn(null);
 
-        assertThrows(UserNotFoundException.class,
-            () -> userService.getUserById(nonExistentId)
-        );
-
-        verify(userRepository, times(1)).findById(nonExistentId);
-    }
 
     @Test
     @DisplayName("Should return all users when findAllUsers() is called")

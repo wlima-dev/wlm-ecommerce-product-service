@@ -1,9 +1,6 @@
 package com.ecommerce.wlm_ecommerce_product_service.infrastructure.rest.exception;
 
-import com.ecommerce.wlm_ecommerce_product_service.domain.exception.OrderCouldNotDeleteException;
-import com.ecommerce.wlm_ecommerce_product_service.domain.exception.ProductNotFoundException;
-import com.ecommerce.wlm_ecommerce_product_service.domain.exception.ProductWasNotUpdated;
-import com.ecommerce.wlm_ecommerce_product_service.domain.exception.UserNotFoundException;
+import com.ecommerce.wlm_ecommerce_product_service.domain.exception.*;
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.rest.dto.OrderErrorResponse;
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.rest.dto.ProductErrorResponse;
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.rest.dto.UserErrorResponse;
@@ -17,6 +14,16 @@ import java.time.LocalDateTime;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    @ExceptionHandler(OrderNotFoundException.class)
+    public ResponseEntity<UserErrorResponse> handleOrderNotFound(OrderNotFoundException e) {
+        UserErrorResponse error = new UserErrorResponse(
+                HttpStatus.NOT_FOUND.value(),
+                e.getMessage(),
+                LocalDateTime.now()
+        );
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
+
     @ExceptionHandler(OrderCouldNotDeleteException.class)
     public ResponseEntity<OrderErrorResponse> handleOrderDelete(OrderCouldNotDeleteException e) {
         OrderErrorResponse error = new OrderErrorResponse(
@@ -28,8 +35,8 @@ public class GlobalExceptionHandler {
     }
 
 
-    @ExceptionHandler(ProductWasNotUpdated.class)
-    public ResponseEntity<ProductErrorResponse> handleProductNotFound(ProductWasNotUpdated e) {
+    @ExceptionHandler(ProductWasNotUpdatedException.class)
+    public ResponseEntity<ProductErrorResponse> handleProductNotUpdated(ProductWasNotUpdatedException e) {
         ProductErrorResponse error = new ProductErrorResponse(
                 HttpStatus.NOT_FOUND.value(),
                 e.getMessage(),

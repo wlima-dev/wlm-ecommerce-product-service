@@ -2,26 +2,22 @@ package com.ecommerce.wlm_ecommerce_product_service.application.service;
 
 import com.ecommerce.wlm_ecommerce_product_service.application.dto.OrderResponse;
 import com.ecommerce.wlm_ecommerce_product_service.domain.exception.OrderCouldNotDeleteException;
-import com.ecommerce.wlm_ecommerce_product_service.domain.exception.UserNotFoundException;
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.*;
 import com.ecommerce.wlm_ecommerce_product_service.domain.repository.OrderRepository;
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.OrderEntity;
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.OrderItemEntity;
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.ProductEntity;
-import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.UserEntity;
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.repository.SpringDataOrderItem;
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.repository.SpringDataProduct;
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.repository.SpringDataUser;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -109,7 +105,7 @@ class OrderServiceTest {
         when(orderRepository.findOrderById(99L)).thenReturn(Optional.empty());
 
         // Act + Assert
-        assertThrows(NoSuchElementException.class,
+        assertThrows(RuntimeException.class,
                 () -> orderService.getOrderById(99L));
 
         verify(orderRepository, times(1)).findOrderById(99L);
@@ -119,20 +115,26 @@ class OrderServiceTest {
     @Test
     @DisplayName("Should return Order if id exists")
     void shouldGetOrderById() {
-//        Order expectedOrder = new Order(1L, 10L, List.of());
-//        when(orderRepository.findOrderById(1L)).thenReturn(Optional.of(expectedOrder));
-//
-//        Order found = orderService.getOrderById(1L);
-//
-//        assertNotNull(found);
-//        assertEquals(expectedOrder, found);
-//        verify(orderRepository, times(1)).findOrderById(1L);
+        OrderEntity expectedOrder = new OrderEntity(
+                1L,
+                StatusOrder.CREATED,
+                StatusPayment.SUCCESS,
+                5L,
+                new BigDecimal(600)
+        );
+
+        when(orderRepository.findOrderById(1L)).thenReturn(Optional.of(expectedOrder));
+
+        OrderResponse found = orderService.getOrderById(1L);
+
+        assertNotNull(found);
+        verify(orderRepository, times(1)).findOrderById(1L);
     }
 
     @Test
     @DisplayName("Should throw exception if ID is invalid")
     void shouldThrowWhenInvalidOrderId() {
-        assertThrows(NoSuchElementException.class, () -> orderService.getOrderById(-1L));
+        assertThrows(RuntimeException.class, () -> orderService.getOrderById(-1L));
     }
 
     @Test
@@ -149,7 +151,7 @@ class OrderServiceTest {
         // Assert
         assertNotNull(orderEntity);
         assertEquals(StatusPayment.SUCCESS, orderEntity.getStatusPayment());
-        assertEquals(StatusPayment.SUCCESS, entity.getStatusPayment());// this is intern object
+        assertEquals(StatusPayment.SUCCESS, entity.getStatusPayment());
 
         verify(orderRepository, times(1)).findOrderById(2L);
         verify(orderRepository, times(1)).save(any(OrderEntity.class));
@@ -170,12 +172,16 @@ class OrderServiceTest {
     @Test
     @DisplayName("Should throw UserNotFoundException if userId does not exists when order delete method is called.")
     void shouldThrowWhenDeletingWithInvalidOrderId() {
-        doThrow(OrderCouldNotDeleteException.class).when(orderRepository).deleteById(999L);
+        doThrow(new RuntimeException("DB delete failed")).when(orderRepository).deleteById(999L);
 
-        assertThrows(OrderCouldNotDeleteException.class,
+        RuntimeException exception = assertThrows(RuntimeException.class,
                 () -> orderService.deleteOrder(999L));
 
-        verify(orderRepository, times(1)).deleteById(anyLong());
+        assertInstanceOf(OrderCouldNotDeleteException.class, exception.getCause());
+
+        assertEquals("Could not delete order with ID: 999", exception.getCause().getMessage());
+
+        verify(orderRepository, times(1)).deleteById(999L);
     }
 
 }

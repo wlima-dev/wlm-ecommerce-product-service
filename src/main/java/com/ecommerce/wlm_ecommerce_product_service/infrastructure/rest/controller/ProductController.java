@@ -50,12 +50,8 @@ public class ProductController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<ProductDTO> deleteProduct(@PathVariable Long id) {
-        try {
             productService.deleteProduct(id);
             return ResponseEntity.ok().build();
-        } catch (ProductNotFoundException exception){
-            return ResponseEntity.notFound().build();
-        }
     }
 
 }
