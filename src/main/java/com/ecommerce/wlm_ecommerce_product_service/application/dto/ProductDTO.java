@@ -1,14 +1,18 @@
 package com.ecommerce.wlm_ecommerce_product_service.application.dto;
 
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.Product;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
-@Getter
-@Setter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class ProductDTO {
+
+    private Long id;
     private String sku;
     private String name;
     private String description;

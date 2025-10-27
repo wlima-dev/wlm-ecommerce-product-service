@@ -1,14 +1,14 @@
 package com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
-@Getter
-@Setter
+@Data
 @Entity
+@NoArgsConstructor
 @Table(name = "products")
 public class ProductEntity {
 
@@ -29,8 +29,6 @@ public class ProductEntity {
 
     @Column(nullable = false)
     private int quantity;
-
-    public ProductEntity() {}
 
     public ProductEntity(String sku, String name, String description, BigDecimal price, int quantity) {
         this.sku = sku;

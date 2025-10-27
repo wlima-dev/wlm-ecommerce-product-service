@@ -6,34 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9573f3c9-9d0f-40da-9b28-600fc5af43fb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecommerce/wlm_ecommerce_product_service/application/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecommerce/wlm_ecommerce_product_service/application/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecommerce/wlm_ecommerce_product_service/application/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecommerce/wlm_ecommerce_product_service/application/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecommerce/wlm_ecommerce_product_service/application/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecommerce/wlm_ecommerce_product_service/application/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecommerce/wlm_ecommerce_product_service/domain/event/OrderCreatedEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecommerce/wlm_ecommerce_product_service/domain/exception/OrderCouldNotDeleteException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecommerce/wlm_ecommerce_product_service/domain/exception/OrderCouldNotDeleteException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecommerce/wlm_ecommerce_product_service/domain/exception/ProductNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecommerce/wlm_ecommerce_product_service/domain/exception/ProductNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecommerce/wlm_ecommerce_product_service/domain/exception/ProductWasNotUpdated.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecommerce/wlm_ecommerce_product_service/domain/exception/ProductWasNotUpdatedException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecommerce/wlm_ecommerce_product_service/domain/exception/UserNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecommerce/wlm_ecommerce_product_service/domain/exception/UserNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecommerce/wlm_ecommerce_product_service/domain/service/TaxesCalculator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/config/KafkaConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/messaging/OrderCreatedProducer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/messaging/OrderStatusConsumer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/rest/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/rest/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/rest/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/rest/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ecommerce/wlm_ecommerce_product_service/WlmEcommerceProductServiceApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ecommerce/wlm_ecommerce_product_service/application/dto/OrderDTOTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ecommerce/wlm_ecommerce_product_service/application/dto/UserDTOTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ecommerce/wlm_ecommerce_product_service/application/service/OrderServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ecommerce/wlm_ecommerce_product_service/application/service/OrderServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ecommerce/wlm_ecommerce_product_service/application/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ecommerce/wlm_ecommerce_product_service/application/service/UserServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ecommerce/wlm_ecommerce_product_service/domain/model/UserTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ecommerce/wlm_ecommerce_product_service/domain/repository/UserRepositoryTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ecommerce/wlm_ecommerce_product_service/domain/service/TaxesCalculatorTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/config/BeanConfigTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/messaging/MessageProducerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/adapter/OrderRepositoryImplTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/entity/ProductEntityTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/persistence/repository/SpringDataProductRepositoryTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ecommerce/wlm_ecommerce_product_service/infrastructure/rest/ProductControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,9 +20,9 @@
         <option value="Enum" />
         <option value="JUnit5 Test Class" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Record" />
         <option value="Exception" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -117,6 +91,9 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.37927845&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;build.tools&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -286,5 +263,34 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ecommerce/wlm_ecommerce_product_service/application/service/UserService.java</url>
+          <line>29</line>
+          <properties class="com.ecommerce.wlm_ecommerce_product_service.application.service.UserService" method="getUserById">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ecommerce/wlm_ecommerce_product_service/application/service/OrderService.java</url>
+          <line>82</line>
+          <properties class="com.ecommerce.wlm_ecommerce_product_service.application.service.OrderService" method="updateStatus">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ecommerce/wlm_ecommerce_product_service/application/service/UserService.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

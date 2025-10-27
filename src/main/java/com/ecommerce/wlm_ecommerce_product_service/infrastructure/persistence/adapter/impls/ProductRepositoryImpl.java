@@ -5,32 +5,25 @@ import com.ecommerce.wlm_ecommerce_product_service.domain.repository.ProductRepo
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.adapter.mapps.ProductMapper;
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.ProductEntity;
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.repository.SpringDataProduct;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
+@RequiredArgsConstructor
 public class ProductRepositoryImpl implements ProductRepository {
 
-    public SpringDataProduct springDataProduct;
+    private final SpringDataProduct springDataProduct;
 
-    public ProductRepositoryImpl(SpringDataProduct jpaInterfaceInstance) {
-        this.springDataProduct = jpaInterfaceInstance;
+    @Override
+    public ProductEntity save(ProductEntity product) {
+        return springDataProduct.save(product);
     }
 
     @Override
-    public Product save(Product product) {
-        ProductEntity entity = ProductMapper.toEntity(product);
-
-        ProductEntity saved = springDataProduct.save(entity);
-        return ProductMapper.toDomain(saved);
-    }
-
-    @Override
-    public Product findById(Long id){
-        Optional<ProductEntity> productEntity = springDataProduct.findById(id);
-        return ProductMapper.toDomain(productEntity.orElse(null));
+    public ProductEntity findById(Long id){
+        return springDataProduct.findById(id).orElseThrow();
     }
 
     @Override

@@ -2,46 +2,45 @@ package com.ecommerce.wlm_ecommerce_product_service.infrastructure.rest.controll
 
 import com.ecommerce.wlm_ecommerce_product_service.application.dto.UserDTO;
 import com.ecommerce.wlm_ecommerce_product_service.application.service.UserService;
+import com.ecommerce.wlm_ecommerce_product_service.domain.exception.UserNotFoundException;
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.User;
+import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.UserEntity;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/user")
 public class UserController {
 
-    UserService userService;
-
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
+    private final UserService userService;
 
     @PostMapping()
-    public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO dto) {
-        User user = UserDTO.toDomain(dto);
-        return ResponseEntity.ok(UserDTO.toDTO(userService.createUser(user)));
+    public ResponseEntity<UserDTO> createUser(@RequestBody UserEntity user) {
+        return ResponseEntity.ok(userService.createUser(user));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> findByIdUser(@PathVariable Long id){
+    public ResponseEntity<UserDTO> findByIdUser(@PathVariable Long id) throws UserNotFoundException {
         return ResponseEntity.ok(userService.getUserById(id));
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> getAllUser(){
+    public ResponseEntity<List<UserDTO>> getAllUser() throws UserNotFoundException {
         return ResponseEntity.ok(userService.findAll());
     }
 
     @PutMapping()
-    public ResponseEntity<User> updateUser(@RequestBody UserDTO dto){
-        User newUser = userService.updateUser(UserDTO.toDomain(dto));
-        return ResponseEntity.ok(newUser);
+    public ResponseEntity<UserDTO> updateUser(@RequestBody User user){
+        return ResponseEntity.ok(userService.updateUser(user));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id){
+        userService.deleteUser(id);
         return ResponseEntity.noContent().build();
     }
 }

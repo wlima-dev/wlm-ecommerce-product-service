@@ -1,12 +1,12 @@
 package com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
 @Entity
-@Getter
-@Setter
+@NoArgsConstructor
 @Table(name = "address")
 public class AddressEntity {
 
@@ -23,8 +23,6 @@ public class AddressEntity {
     @JoinColumn(name = "user_id")
     private UserEntity userEntity;
 
-    public AddressEntity() {}
-
     public AddressEntity(String street, String city, String state, String zip) {
         this.street = street;
         this.city = city;
@@ -32,4 +30,7 @@ public class AddressEntity {
         this.zip = zip;
     }
 
+    public void setUserEntity(UserEntity userEntity) {
+        this.userEntity = userEntity;
+    }
 }

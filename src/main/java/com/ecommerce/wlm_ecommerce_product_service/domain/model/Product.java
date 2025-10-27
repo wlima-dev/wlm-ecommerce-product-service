@@ -1,10 +1,14 @@
 package com.ecommerce.wlm_ecommerce_product_service.domain.model;
 
-import lombok.Getter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
-@Getter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
 
     private Long id;
@@ -14,25 +18,13 @@ public class Product {
     private BigDecimal price;
     private int quantity;
 
-
     public Product(String sku, String name, String description, BigDecimal price, int quantity) {
         validate(sku,name,price,quantity);
 
         this.sku = sku;
         this.name = name;
-        this.price = price;
         this.description = description;
-        this.quantity = quantity;
-    }
-
-    public Product(Long id, String sku, String name, String description, BigDecimal price, int quantity) {
-        validate(sku,name,price,quantity);
-
-        this.id = id;
-        this.sku = sku;
-        this.name = name;
         this.price = price;
-        this.description = description;
         this.quantity = quantity;
     }
 

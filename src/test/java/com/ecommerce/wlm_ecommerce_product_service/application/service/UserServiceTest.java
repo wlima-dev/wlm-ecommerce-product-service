@@ -1,9 +1,12 @@
 package com.ecommerce.wlm_ecommerce_product_service.application.service;
 
+import com.ecommerce.wlm_ecommerce_product_service.application.dto.UserDTO;
 import com.ecommerce.wlm_ecommerce_product_service.domain.exception.UserNotFoundException;
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.Address;
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.User;
 import com.ecommerce.wlm_ecommerce_product_service.domain.repository.UserRepository;
+import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.AddressEntity;
+import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.UserEntity;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,6 +15,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -52,16 +56,29 @@ class UserServiceTest {
     @DisplayName("Should create a valid user")
     void shouldCreateValidUser(){
         // Arrange
-        when(userRepository.save(user)).thenReturn(user);
+        AddressEntity addressEntity = new AddressEntity(
+                user.getAddress().getStreet(),
+                user.getAddress().getCity(),
+                user.getAddress().getState(),
+                user.getAddress().getZip()
+        );
+
+        UserEntity userEntity = new UserEntity();
+        userEntity.setId(user.getId());
+        userEntity.setName(user.getName());
+        userEntity.setEmail(user.getEmail());
+        userEntity.setAddressEntity(addressEntity);
+
+        when(userRepository.save(userEntity)).thenReturn(userEntity);
 
         // Act
-        User userCreated = userService.createUser(user);
+        UserDTO userCreated = userService.createUser(userEntity);
 
         assertNotNull(userCreated);
         assertEquals(name, userCreated.getName());
         assertEquals(email, userCreated.getEmail());
 
-        verify(userRepository, times(1)).save(user);
+        verify(userRepository, times(1)).save(userEntity);
     }
 
     @Test
@@ -76,17 +93,30 @@ class UserServiceTest {
 
     @Test
     @DisplayName("Check if the findById() method is working")
-    void shouldReturnValidUser(){
+    void shouldReturnValidUser() throws UserNotFoundException {
         // Arrange
-        when(userRepository.findById(userId)).thenReturn(user);
+        UserEntity userEntity = new UserEntity();
+        userEntity.setId(userId);
+        userEntity.setName(user.getName());
+        userEntity.setEmail(user.getEmail());
+
+        AddressEntity addressEntity = new AddressEntity(
+                user.getAddress().getStreet(),
+                user.getAddress().getCity(),
+                user.getAddress().getState(),
+                user.getAddress().getZip()
+        );
+        userEntity.setAddressEntity(addressEntity);
+
+        when(userRepository.findById(userId)).thenReturn(userEntity);
 
         // Act
-        User foundUser = userService.getUserById(userId);
+        UserDTO foundUser = userService.getUserById(userId);
 
         // Assert
         assertNotNull(foundUser);
-        assertEquals("Ivar the boneless", foundUser.getName());
-        assertEquals("vikings@business.email.com", foundUser.getEmail());
+        assertEquals(user.getName(), foundUser.getName());
+        assertEquals(user.getEmail(), foundUser.getEmail());
 
         verify(userRepository, times(1)).findById(userId);
     }
@@ -95,7 +125,7 @@ class UserServiceTest {
 
     @Test
     @DisplayName("Should return all users when findAllUsers() is called")
-    void shouldReturnAllUsers(){
+    void shouldReturnAllUsers() throws UserNotFoundException {
         User user1 = new User("Ragnar Lothbrok", "ragnar@vikings.com",
                 new Address("Main Street", "Oslo", "Oslo", "1000"));
         User user2 = new User("Lagertha", "lagertha@vikings.com",
@@ -105,7 +135,10 @@ class UserServiceTest {
 
         when(userRepository.findAll()).thenReturn(users);
 
-        List<User> foundUsers = userService.findAll();
+        List<User> foundUsers = new ArrayList<>();
+        for(UserDTO dto : userService.findAll()){
+            foundUsers.add(UserDTO.toDomain(dto));
+        }
 
         assertNotNull(foundUsers);
         assertEquals(2, foundUsers.size());
@@ -120,16 +153,16 @@ class UserServiceTest {
     void shouldUpdateTheUser(){
         Long id = 1L;
 
-        User existingUser = new User(id, "Ragnar Lothbrok", "ragnar@vikings.com",
-                new Address("Main Street", "Oslo", "Oslo", "1000"));
+        AddressEntity addressEntity = new AddressEntity("Main Street", "Oslo", "Oslo", "1000");
+        UserEntity existingUser = new UserEntity("Ragnar Lothbrok", "ragnar@vikings.com",addressEntity);
 
         User updatedUser = new User(id, "Ragnar Lodbrok", "lodbrok@vikings.com",
                 new Address("New Road", "Bergen", "Vestland", "5000"));
 
         when(userRepository.findById(id)).thenReturn(existingUser);
-        when(userRepository.save(any(User.class))).thenReturn(updatedUser);
+        when(userRepository.save(existingUser)).thenReturn(existingUser);
 
-        User result = userService.updateUser(updatedUser);
+        UserDTO result = userService.updateUser(updatedUser);
 
         assertNotNull(result, "Assert that user was updated successfully");
         assertEquals("Ragnar Lodbrok", result.getName());
@@ -137,7 +170,7 @@ class UserServiceTest {
         assertEquals("New Road", result.getAddress().getStreet());
 
         verify(userRepository, times(1)).findById(id);
-        verify(userRepository, times(1)).save(any(User.class));
+        verify(userRepository, times(1)).save(any(UserEntity.class));
     }
 
     @Test

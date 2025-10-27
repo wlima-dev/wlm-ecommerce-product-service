@@ -5,7 +5,6 @@ import com.ecommerce.wlm_ecommerce_product_service.domain.model.OrderItem;
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.OrderEntity;
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.OrderItemEntity;
 import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.repository.SpringDataOrderItem;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;

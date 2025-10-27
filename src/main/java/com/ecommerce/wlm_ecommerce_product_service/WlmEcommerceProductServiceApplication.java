@@ -7,6 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class WlmEcommerceProductServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(WlmEcommerceProductServiceApplication.class, args);
-        System.out.println("OKAY, CAN GO ON!");
+        System.out.println("Product Service Application Started");
 	}
 }

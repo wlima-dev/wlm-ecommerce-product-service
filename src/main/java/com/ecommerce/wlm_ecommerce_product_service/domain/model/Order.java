@@ -1,11 +1,13 @@
 package com.ecommerce.wlm_ecommerce_product_service.domain.model;
 
-import lombok.Getter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-@Getter
+@Data
+@NoArgsConstructor
 public class Order {
 
     private Long id;
@@ -14,8 +16,6 @@ public class Order {
     private Long userId;
     private List<OrderItem> items;
     private BigDecimal amount;
-
-    public Order() {}
 
     public Order(Long userId, List<OrderItem> items) {
         this.statusOrder = StatusOrder.CREATED;
@@ -56,15 +56,4 @@ public class Order {
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
-    @Override
-    public String toString() {
-        return "Order{" +
-                "id=" + id +
-                ", statusOrder=" + statusOrder +
-                ", statusPayment=" + statusPayment +
-                ", userId=" + userId +
-                ", items=" + items +
-                ", amount=" + amount +
-                '}';
-    }
 }

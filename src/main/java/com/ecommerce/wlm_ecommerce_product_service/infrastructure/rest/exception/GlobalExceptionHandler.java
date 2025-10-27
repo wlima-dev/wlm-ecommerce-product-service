@@ -14,6 +14,16 @@ import java.time.LocalDateTime;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    @ExceptionHandler(OrderAlreadyPaidException.class)
+    public ResponseEntity<UserErrorResponse> handleOrderAlreadyPaid(OrderAlreadyPaidException e) {
+        UserErrorResponse error = new UserErrorResponse(
+                HttpStatus.NOT_FOUND.value(),
+                e.getMessage(),
+                LocalDateTime.now()
+        );
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
+
     @ExceptionHandler(OrderNotFoundException.class)
     public ResponseEntity<UserErrorResponse> handleOrderNotFound(OrderNotFoundException e) {
         UserErrorResponse error = new UserErrorResponse(
