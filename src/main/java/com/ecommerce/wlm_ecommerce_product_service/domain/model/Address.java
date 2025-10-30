@@ -1,10 +1,10 @@
 package com.ecommerce.wlm_ecommerce_product_service.domain.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
 public class Address {
 
     private Long id;
@@ -12,8 +12,6 @@ public class Address {
     private String city;
     private String state;
     private String zip;
-
-    protected Address() {}
 
     public Address(String street, String city, String state, String zip) {
         this.street = street;
@@ -45,4 +43,5 @@ public class Address {
     public void changeZip(String zip) {
         this.zip = zip;
     }
+
 }

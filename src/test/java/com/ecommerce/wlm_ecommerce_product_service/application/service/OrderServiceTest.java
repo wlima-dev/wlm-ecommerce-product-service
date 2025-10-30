@@ -1,6 +1,7 @@
 package com.ecommerce.wlm_ecommerce_product_service.application.service;
 
-import com.ecommerce.wlm_ecommerce_product_service.application.dto.OrderResponse;
+import com.ecommerce.wlm_ecommerce_product_service.application.dto.OrderRequestDTO;
+import com.ecommerce.wlm_ecommerce_product_service.application.dto.OrderResponseDTO;
 import com.ecommerce.wlm_ecommerce_product_service.domain.exception.OrderCouldNotDeleteException;
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.*;
 import com.ecommerce.wlm_ecommerce_product_service.domain.repository.OrderRepository;
@@ -63,7 +64,7 @@ class OrderServiceTest {
         OrderItem item = new OrderItem(1, 2L, 13L, new BigDecimal(150));
         List<OrderItem> orderItems = new ArrayList<>();
         orderItems.add(item);
-        Order order = new Order(1L,orderItems);
+        OrderRequestDTO order = new OrderRequestDTO(1L, orderItems);
 
         when(orderRepository.save(any(OrderEntity.class))).thenReturn(entity);
         when(springDataOrderItem.save(any(OrderItemEntity.class))).thenReturn(itemEntity);
@@ -85,13 +86,13 @@ class OrderServiceTest {
         when(orderRepository.findOrderById(2L)).thenReturn(Optional.of(entity));
 
         // Act
-        OrderResponse response = orderService.getOrderById(2L);
+        OrderResponseDTO response = orderService.getOrderById(2L);
 
         // Assert
         assertNotNull(response);
         assertEquals(2L, response.getId());
-        assertEquals("CREATED", response.getStatusOrder());
-        assertEquals("SUCCESS", response.getStatusPayment());
+        assertEquals(StatusOrder.CREATED, response.getStatusOrder());
+        assertEquals(StatusPayment.SUCCESS, response.getStatusPayment());
         assertEquals(5L, response.getUserId());
         assertEquals(new BigDecimal("600.00"), response.getAmount());
 
@@ -125,7 +126,7 @@ class OrderServiceTest {
 
         when(orderRepository.findOrderById(1L)).thenReturn(Optional.of(expectedOrder));
 
-        OrderResponse found = orderService.getOrderById(1L);
+        OrderResponseDTO found = orderService.getOrderById(1L);
 
         assertNotNull(found);
         verify(orderRepository, times(1)).findOrderById(1L);

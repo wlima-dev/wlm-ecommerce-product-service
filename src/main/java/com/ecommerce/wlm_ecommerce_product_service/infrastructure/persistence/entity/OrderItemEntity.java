@@ -1,14 +1,14 @@
 package com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
-@Setter
-@Getter
+@Data
 @Entity
+@NoArgsConstructor
 @Table(name = "order_items")
 public class OrderItemEntity {
 
@@ -27,8 +27,6 @@ public class OrderItemEntity {
     @Column(name = "unit_price")
     private BigDecimal unitPrice;
 
-    public OrderItemEntity() {}
-
     public OrderItemEntity(Long orderItemId, Long productId, int quantity, BigDecimal unitPrice) {
         this.orderItemId = orderItemId;
         this.productId = productId;
@@ -36,14 +34,4 @@ public class OrderItemEntity {
         this.unitPrice = unitPrice;
     }
 
-    @Override
-    public String toString() {
-        return "OrderItemEntity{" +
-                "id=" + id +
-                ", quantity=" + quantity +
-                ", orderItemId=" + orderItemId +
-                ", productId=" + productId +
-                ", unitPrice=" + unitPrice +
-                '}';
-    }
 }

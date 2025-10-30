@@ -1,7 +1,10 @@
 package com.ecommerce.wlm_ecommerce_product_service.application.service;
 
+import com.ecommerce.wlm_ecommerce_product_service.domain.exception.ProductNotFoundException;
+import com.ecommerce.wlm_ecommerce_product_service.domain.exception.ProductWasNotUpdatedException;
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.Product;
 import com.ecommerce.wlm_ecommerce_product_service.domain.repository.ProductRepository;
+import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.ProductEntity;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -41,9 +44,16 @@ class ProductServiceTest {
 
     @Test
     @DisplayName("Should create product successfully")
-    void shouldCreateAValidProduct() {
+    void shouldCreateAValidProduct() throws ProductNotFoundException {
         // Arrange
-        when(productRepository.save(any(Product.class))).thenReturn(product);
+        ProductEntity productEntity = new ProductEntity(
+                product.getSku(),
+                product.getName(),
+                product.getDescription(),
+                product.getPrice(),
+                product.getQuantity()
+        );
+        when(productRepository.save(any(ProductEntity.class))).thenReturn(productEntity);
 
         // Act
         Product savedProduct = productService.create(product);
@@ -56,14 +66,21 @@ class ProductServiceTest {
         assertEquals(savedProduct.getPrice(), product.getPrice());
         assertEquals(savedProduct.getQuantity(), product.getQuantity());
 
-        verify(productRepository, times(1)).save(product);
+        verify(productRepository, times(1)).save(productEntity);
     }
 
     @Test
     @DisplayName("Should return product when found by existing ID")
-    void shouldReturnProductIfExists() {
+    void shouldReturnProductIfExists() throws ProductNotFoundException {
         // Arrange
-        when(productRepository.findById(product.getId())).thenReturn(product);
+        ProductEntity productEntity = new ProductEntity(
+                product.getSku(),
+                product.getName(),
+                product.getDescription(),
+                product.getPrice(),
+                product.getQuantity()
+        );
+        when(productRepository.findById(product.getId())).thenReturn(productEntity);
 
         // Act
         Product found = productService.findById(product.getId());
@@ -86,10 +103,18 @@ class ProductServiceTest {
 
     @Test
     @DisplayName("Should update the product Name, Price and Quantity successfully")
-    void shouldUpdateProductSuccessfully() {
+    void shouldUpdateProductSuccessfully() throws ProductWasNotUpdatedException {
         // Arrange
-        when(productRepository.findById(product.getId())).thenReturn(product);
-        when(productRepository.save(product)).thenReturn(product);
+        ProductEntity productEntity = new ProductEntity(
+                product.getSku(),
+                product.getName(),
+                product.getDescription(),
+                product.getPrice(),
+                product.getQuantity()
+        );
+
+        when(productRepository.findById(product.getId())).thenReturn(productEntity);
+        when(productRepository.save(any(ProductEntity.class))).thenReturn(productEntity);
 
         product.changeName("brandNewProduct");
         product.changePrice(BigDecimal.valueOf(27.72));
@@ -101,7 +126,7 @@ class ProductServiceTest {
         assertEquals(BigDecimal.valueOf(27.72), product.getPrice());
         assertEquals(7, product.getQuantity());
 
-        verify(productRepository, times(1)).save(product);
+        verify(productRepository, times(1)).save(productEntity);
     }
 
     @Test

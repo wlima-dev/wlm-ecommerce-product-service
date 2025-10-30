@@ -4,38 +4,36 @@ import com.ecommerce.wlm_ecommerce_product_service.domain.exception.ProductNotFo
 import com.ecommerce.wlm_ecommerce_product_service.domain.exception.ProductWasNotUpdatedException;
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.Product;
 import com.ecommerce.wlm_ecommerce_product_service.domain.repository.ProductRepository;
+import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.adapter.mapps.ProductMapper;
+import com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity.ProductEntity;
 import jakarta.transaction.Transactional;
 import jakarta.validation.constraints.Positive;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ProductService {
-    ProductRepository productRepository;
-
-    public ProductService(ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
+    private final ProductRepository productRepository;
 
     @Transactional
-    public Product create(Product product) {
+    public Product create(Product product) throws ProductNotFoundException {
         if(product == null){
-            throw new IllegalArgumentException("Invalid product was provided");
+            throw new ProductNotFoundException("Invalid product was provided");
         }
-        return productRepository.save(product);
+
+        ProductEntity productEntity = ProductMapper.toEntity(product);
+        return ProductMapper.toDomain(productRepository.save(productEntity));
     }
 
-    public Product findById(@Positive Long id){
-       try{
-           Product product =  productRepository.findById(id);
-           if(product == null){
-               throw new ProductNotFoundException(id);
-           }
-           return product;
-       } catch (ProductNotFoundException e) {
-           throw new RuntimeException(e);
+    public Product findById(@Positive Long id) throws ProductNotFoundException {
+       ProductEntity entity = productRepository.findById(id);
+       if(entity == null){
+           throw new ProductNotFoundException("Product not found");
        }
+       return ProductMapper.toDomain(entity);
     }
 
     public List<Product> listAllProduct() {
@@ -51,23 +49,17 @@ public class ProductService {
     }
 
     @Transactional
-    public Product updateProduct(Product product){
-        try {
-            Product found = productRepository.findById(product.getId());
+    public Product updateProduct(Product product) throws ProductWasNotUpdatedException {
 
-            found.changeName(product.getName());
-            found.changePrice(product.getPrice());
-            found.changeQuantity(product.getQuantity());
+        ProductEntity found = productRepository.findById(product.getId());
 
-            Product updated = productRepository.save(found);
-            if (updated == null) {
-                throw new ProductWasNotUpdatedException("Could not update this product");
-            }
+        found.setName(product.getName());
+        found.setPrice(product.getPrice());
+        found.setQuantity(product.getQuantity());
 
-            return updated;
-        } catch (ProductWasNotUpdatedException e){
-            throw new RuntimeException(e);
-        }
+        ProductEntity updated = productRepository.save(found);
+
+        return ProductMapper.toDomain(updated);
     }
 
     @Transactional

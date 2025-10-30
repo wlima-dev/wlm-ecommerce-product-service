@@ -1,12 +1,12 @@
 package com.ecommerce.wlm_ecommerce_product_service.infrastructure.persistence.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
 @Entity
-@Getter
-@Setter
+@NoArgsConstructor
 @Table(name = "users")
 public class UserEntity {
 
@@ -23,14 +23,11 @@ public class UserEntity {
     @OneToOne(mappedBy = "userEntity", cascade = CascadeType.ALL)
     private AddressEntity addressEntity;
 
-    public UserEntity() {}
-
     public UserEntity(String name, String email, AddressEntity addressEntity) {
         this.name = name;
         this.email = email;
         this.addressEntity = addressEntity;
     }
-
 
     public void setAddressEntity(AddressEntity addressEntity) {
         this.addressEntity = addressEntity;

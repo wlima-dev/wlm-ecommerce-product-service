@@ -2,11 +2,9 @@ package com.ecommerce.wlm_ecommerce_product_service.application.dto;
 
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.Address;
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.User;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Setter
-@Getter
+@Data
 public class UserDTO {
 
     private final String name;

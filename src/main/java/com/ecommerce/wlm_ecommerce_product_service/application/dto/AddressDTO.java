@@ -1,9 +1,9 @@
 package com.ecommerce.wlm_ecommerce_product_service.application.dto;
 
 import com.ecommerce.wlm_ecommerce_product_service.domain.model.Address;
-import lombok.Getter;
+import lombok.Data;
 
-@Getter
+@Data
 public class AddressDTO {
     private final String street;
     private final String city;
